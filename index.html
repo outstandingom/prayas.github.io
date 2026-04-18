@@ -65,7 +65,7 @@
             <h2 class="text-2xl font-semibold text-gray-700 mb-4">Software Requirements Specification</h2>
             <div class="border-t border-b border-gray-200 py-4 my-6">
                 <p class="text-gray-600">Version 1.0</p>
-                <p class="text-gray-600">Prepared by: Scan Spot</p>
+                <p class="text-gray-600">Prepared by: Growhaz</p>
                 <p class="text-gray-600">Date: 6, AUGUST, 2025</p>
             </div>
         </header>
@@ -78,7 +78,8 @@
                 <li><a href="#overall-description" class="text-blue-600 hover:underline">2. Overall Description</a></li>
                 <li><a href="#system-features" class="text-blue-600 hover:underline">3. System Features & Requirements</a></li>
                 <li><a href="#external-interfaces" class="text-blue-600 hover:underline">4. External Interface Requirements</a></li>
-                <li><a href="#appendices" class="text-blue-600 hover:underline">5. Appendices</a></li>
+                <li><a href="#pricing-services" class="text-blue-600 hover:underline">5. Pricing & Additional Services</a></li>
+                <li><a href="#appendices" class="text-blue-600 hover:underline">6. Appendices</a></li>
             </ul>
         </section>
 
@@ -321,14 +322,48 @@
             </table>
         </section>
 
-        <!-- 5. Appendices -->
-        <section id="appendices" class="mb-12">
-            <h2 class="text-2xl font-bold text-blue-800 border-b border-blue-200 pb-2 mb-4">5. Appendices</h2>
+        <!-- 5. Pricing & Additional Services (NEW SECTION) -->
+        <section id="pricing-services" class="mb-12 page-break">
+            <h2 class="text-2xl font-bold text-blue-800 border-b border-blue-200 pb-2 mb-4">5. Pricing & Additional Services</h2>
             
-            <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5.1 Mockups/Wireframes</h3>
+            <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5.1 Development & Domain Cost</h3>
+            <table class="requirement-table mb-6">
+                <tr>
+                    <th>Item</th>
+                    <th>Cost (INR)</th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td>Complete Website Development</td>
+                    <td>₹20,000</td>
+                    <td>Full e-commerce platform with customization features, admin panel, and integrations.</td>
+                </tr>
+                <tr>
+                    <td>Domain Registration (2 Years)</td>
+                    <td>₹2,000</td>
+                    <td>Includes .com / .in domain, SSL certificate, and renewal support.</td>
+                </tr>
+            </table>
+
+            <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5.2 Value‑Added Services Included</h3>
+            <p class="mb-2">The following services are integrated as part of the development package:</p>
+            <ul class="list-disc pl-5 space-y-2 mb-4">
+                <li><strong>WhatsApp Integration</strong> – Order confirmations, shipping alerts, and customer chat via WhatsApp Business API.</li>
+                <li><strong>Razorpay Payment Gateway</strong> – Seamless UPI, card, and netbanking payments with OTP verification.</li>
+                <li><strong>Leaflet Maps Integration</strong> – Real‑time delivery location tracking and store locator using Leaflet.js (OpenStreetMap).</li>
+                <li><strong>Video Consultation (optional)</strong> – Framework ready for video call integration (e.g., Zoom / Jitsi) for virtual measurements or styling sessions.</li>
+            </ul>
+            <p class="text-sm text-gray-600 italic">* All features are fully tested and delivered with documentation. Support period included for 3 months post‑launch.</p>
+        </section>
+
+        <!-- 6. Appendices -->
+        <section id="appendices" class="mb-12">
+            <h2 class="text-2xl font-bold text-blue-800 border-b border-blue-200 pb-2 mb-4">6. Appendices</h2>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6.1 Mockups/Wireframes</h3>
             <p class="mb-4 italic">(Attach Figma/Adobe XD links here)</p>
             
-            <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5.2 Assumptions & Dependencies</h3>
+            <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6.2 Assumptions & Dependencies</h3>
             <ul class="list-disc pl-5 space-y-1 mb-4">
                 <li>Tailors can manually adjust measurements if needed</li>
                 <li>Real-time inventory updates to prevent overselling</li>
@@ -352,7 +387,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Raj parmar, Om Uikey</td>
+                    <td>Om Uikey</td>
                     <td>Reviewer</td>
                     <td></td>
                     <td></td>
@@ -362,7 +397,7 @@
     </div>
 
     <script>
-        // Add current date to cover page
+        // Add current date to cover page (optional, overrides static date if needed)
         document.addEventListener('DOMContentLoaded', function() {
             const today = new Date();
             const dateString = today.toLocaleDateString('en-US', { 
@@ -370,11 +405,7 @@
                 month: 'long', 
                 day: 'numeric' 
             });
-            
-            const dateElements = document.querySelectorAll('[data-current-date]');
-            dateElements.forEach(el => {
-                el.textContent = dateString;
-            });
+            // Keep static date as per original spec, but this function exists for future.
         });
     </script>
 </body>
