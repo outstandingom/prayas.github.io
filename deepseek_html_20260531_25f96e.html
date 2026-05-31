@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal for Pooja Dave | Custom Web Platform & Enterprise Features</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        @media print {
+            body { font-size: 12pt; }
+            .no-print { display: none !important; }
+            section { page-break-before: always; }
+            section:first-child { page-break-before: avoid; }
+            .page-break { page-break-after: always; }
+            h1, h2, h3 { page-break-after: avoid; }
+            table, img { page-break-inside: avoid; }
+        }
+        .requirement-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .requirement-table th, .requirement-table td {
+            border: 1px solid #e2e8f0;
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .requirement-table th {
+            background-color: #f8fafc;
+            font-weight: 600;
+        }
+        .cost-table td {
+            text-align: right;
+        }
+        .cost-table td:first-child {
+            text-align: left;
+            font-weight: 500;
+        }
+        .badge {
+            background-color: #eef2ff;
+            color: #1e40af;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 p-4 md:p-8 max-w-6xl mx-auto">
+    <div class="no-print flex justify-between items-center mb-8">
+        <button onclick="window.print()" class="bg-blue-700 hover:bg-blue-800 text-white px-5 py-2 rounded-md text-sm font-medium shadow-sm">
+            📄 Save as PDF
+        </button>
+        <div class="text-sm text-gray-500 bg-white px-3 py-1 rounded-full shadow-xs">Proposal v1.0 · Growhaz</div>
+    </div>
+
+    <div class="bg-white p-6 md:p-8 rounded-xl shadow-md border border-gray-100">
+        <!-- Cover Page -->
+        <header class="text-center mb-12 border-b border-gray-200 pb-8">
+            <div class="flex justify-between items-start flex-wrap gap-3 mb-4">
+                <div class="text-left text-sm text-gray-500">📍 Proposal ID: GH-PD-0426</div>
+                <div class="text-right text-sm text-gray-500">📅 31 May 2026</div>
+            </div>
+            <h1 class="text-4xl font-extrabold text-blue-900 mb-2 tracking-tight">Growhaz · Digital Solutions</h1>
+            <h2 class="text-2xl font-semibold text-gray-700 mb-3">Custom Web Platform & Feature Suite</h2>
+            <div class="inline-block bg-blue-50 px-4 py-1 rounded-full text-blue-800 text-sm font-medium mb-4">📌 Exclusive Proposal for Pooja Dave</div>
+            <div class="border-t border-b border-gray-200 py-4 my-4 bg-gray-50/40 rounded-md">
+                <p class="text-gray-700"><span class="font-semibold">Prepared for:</span> Pooja Dave</p>
+                <p class="text-gray-700"><span class="font-semibold">Proposed by:</span> Growhaz Technology Team</p>
+                <p class="text-gray-700"><span class="font-semibold">Project type:</span> Static website + advanced modules (3D, multilingual, security, real‑time queue)</p>
+            </div>
+            <div class="flex justify-center gap-6 text-sm text-gray-600 flex-wrap">
+                <span>⚡ Enterprise readiness</span>
+                <span>🔐 OWASP Top 10 hardened</span>
+                <span>🧩 Custom theme sections</span>
+            </div>
+        </header>
+
+        <!-- Table of Contents -->
+        <section class="mb-12">
+            <h2 class="text-xl font-bold text-blue-800 border-b border-blue-200 pb-2 mb-4">📑 Table of Contents</h2>
+            <ul class="list-disc pl-5 space-y-1.5 columns-2">
+                <li><a href="#intro" class="text-blue-700 hover:underline">1. Introduction & Objective</a></li>
+                <li><a href="#overview" class="text-blue-700 hover:underline">2. Project Overview</a></li>
+                <li><a href="#features" class="text-blue-700 hover:underline">3. System Features & Modules</a></li>
+                <li><a href="#interfaces" class="text-blue-700 hover:underline">4. Technical Stack & Interfaces</a></li>
+                <li><a href="#pricing" class="text-blue-700 hover:underline">5. Investment Breakdown (As Requested)</a></li>
+                <li><a href="#timeline" class="text-blue-700 hover:underline">6. Delivery & Support</a></li>
+                <li><a href="#appendices" class="text-blue-700 hover:underline">7. Appendices & Assumptions</a></li>
+            </ul>
+        </section>
+
+        <!-- 1. Introduction -->
+        <section id="intro" class="mb-12 page-break">
+            <h2 class="text-2xl font-bold text-blue-800 border-b border-blue-200 pb-2 mb-4">1. Introduction & Objective</h2>
+            <h3 class="text-lg font-semibold text-gray-800 mt-4 mb-2">1.1 Purpose</h3>
+            <p class="mb-3">This proposal outlines a complete development package for <strong>Pooja Dave</strong> covering a high‑performance static website, payment gateway integration, robust database, admin dashboard, 3D graphics, multi‑language capabilities, founder profile, full‑screen video sections, <strong>OWASP Top 10 security</strong> hardening, and Redis+Kafka for real‑time message streaming. Each component is priced transparently as per the requested cost structure.</p>
+            
+            <h3 class="text-lg font-semibold text-gray-800 mt-5 mb-2">1.2 Scope in a Nutshell</h3>
+            <ul class="list-disc pl-6 space-y-1.5 mb-4">
+                <li>Fully responsive static website (lightning fast, SEO‑optimized)</li>
+                <li>Secure payment gateway integration (Razorpay / Stripe) – <span class="badge">10K</span></li>
+                <li>Custom relational database design & connection (PostgreSQL / MySQL)</li>
+                <li>Feature‑rich admin dashboard to manage content, users, and site sections</li>
+                <li>High‑impact 3D graphics (product showcases, interactive elements)</li>
+                <li>Modular theme sections with per‑section customization (1.5K each)</li>
+                <li>Multi‑language support (i18n) with language switcher</li>
+                <li>Founder profile page (bio, achievements, social links)</li>
+                <li>Full‑screen video hero / background component</li>
+                <li>OWASP Top 10 security audit & implementation (hardening + vulnerability fixes)</li>
+                <li>Redis + Kafka integration for caching, queuing, and real‑time event streaming</li>
+            </ul>
+        </section>
+
+        <!-- 2. Overall Description -->
+        <section id="overview" class="mb-12 page-break">
+            <h2 class="text-2xl font-bold text-blue-800 border-b border-blue-200 pb-2 mb-4">2. Project Overview</h2>
+            <h3 class="text-xl font-semibold text-gray-800 mt-3 mb-2">2.1 Product Vision</h3>
+            <p class="mb-3">A modern, scalable digital platform where users experience fast static delivery, dynamic backend operations, immersive 3D visuals, and enterprise-grade security. The solution is tailored to showcase brand identity (founder profile, full‑screen video), support international audiences (multi‑language), and allow real‑time data pipelines via Redis & Kafka.</p>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mt-5 mb-2">2.2 User Classes & Roles</h3>
+            <table class="requirement-table mb-5">
+                <thead>
+                    <tr><th>Role</th><th>Access & Responsibilities</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>End Users / Visitors</td><td>Browse static website, view 3D content, use language switcher, interact with payment gateway (purchases / donations).</td></tr>
+                    <tr><td>Founder / Admin</td><td>Access admin dashboard, manage theme sections, update founder profile, monitor transactions, manage database records, view analytics.</td></tr>
+                    <tr><td>Super Admin</td><td>Full OWASP-compliant controls, Redis/Kafka monitoring, audit logs, user permission management.</td></tr>
+                </tbody>
+            </table>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mt-5 mb-2">2.3 Operating Environment & Tech Stack</h3>
+            <table class="requirement-table">
+                <thead><tr><th>Component</th><th>Technology / Implementation</th></tr></thead>
+                <tbody>
+                    <tr><td>Frontend (Static)</td><td>HTML5 / Tailwind CSS / TypeScript · Vite / Next.js (static export) · GSAP for animations</td></tr>
+                    <tr><td>Backend APIs & Admin</td><td>Node.js (Express) or Django · JWT authentication</td></tr>
+                    <tr><td>Database</td><td>PostgreSQL / Supabase (15K component includes schema design + integration)</td></tr>
+                    <tr><td>Payment Gateway</td><td>Razorpay / Stripe (webhooks, payment intents)</td></tr>
+                    <tr><td>3D Graphics</td><td>Three.js / WebGL · interactive 3D models</td></tr>
+                    <tr><td>Message Queue / Cache</td><td>Redis (caching, sessions) + Kafka (event streaming)</td></tr>
+                    <tr><td>Multi‑language</td><td>i18n (JSON locale files) + dynamic content switching</td></tr>
+                    <tr><td>Security Layer</td><td>OWASP Top 10 compliance (XSS, CSRF, SQLi prevention, security headers)</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 3. System Features & Requirements (Mapping to each line item) -->
+        <section id="features" class="mb-12 page-break">
+            <h2 class="text-2xl font-bold text-blue-800 border-b border-blue-200 pb-2 mb-4">3. Core Modules & Functional Requirements</h2>
+            
+            <div class="grid md:grid-cols-2 gap-5 mb-6">
+                <div class="border border-gray-200 rounded-lg p-4 bg-gray-50/30">
+                    <div class="font-bold text-blue-800 text-lg">🌐 Static Website (₹20K)</div>
+                    <p class="text-sm mt-1">Fully responsive, 5+ pages (home, about, services, contact, gallery), optimized Lighthouse score >95, SEO ready, contact forms.</p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-4 bg-gray-50/30">
+                    <div class="font-bold text-blue-800 text-lg">💳 Payment Gateway (₹10K)</div>
+                    <p class="text-sm mt-1">Integration of secure payment gateway (cards, UPI, net banking), webhook confirmations, payment status dashboard.</p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-4 bg-gray-50/30">
+                    <div class="font-bold text-blue-800 text-lg">🗄️ Database (₹15K)</div>
+                    <p class="text-sm mt-1">Custom database design, optimized queries, migration scripts, data backup strategy, and secure connections.</p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-4 bg-gray-50/30">
+                    <div class="font-bold text-blue-800 text-lg">📊 Admin Dashboard (₹5K)</div>
+                    <p class="text-sm mt-1">Manage users, orders/transactions, theme sections, content blocks, view logs & analytics.</p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-4 bg-gray-50/30">
+                    <div class="font-bold text-blue-800 text-lg">🎮 3D Graphics (₹6K)</div>
+                    <p class="text-sm mt-1">Interactive 3D product/model viewer, custom shader effects, lightweight WebGL implementation.</p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-4 bg-gray-50/30">
+                    <div class="font-bold text-blue-800 text-lg">🎨 Custom Theme Sections (₹1.5K each)</div>
+                    <p class="text-sm mt-1">Per‑section design (hero, features, testimonials, gallery). Each section independently customizable via admin UI.</p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-4 bg-gray-50/30">
+                    <div class="font-bold text-blue-800 text-lg">🌍 Multi‑language (₹3K)</div>
+                    <p class="text-sm mt-1">Support 2+ languages (e.g., English, Hindi, regional), dynamic translation files, RTL ready.</p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-4 bg-gray-50/30">
+                    <div class="font-bold text-blue-800 text-lg">👤 Founder Profile (₹2K)</div>
+                    <p class="text-sm mt-1">Dedicated page with bio, achievements, photo gallery, timeline, and social media links.</p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-4 bg-gray-50/30">
+                    <div class="font-bold text-blue-800 text-lg">🎥 Full‑screen Video (₹2K)</div>
+                    <p class="text-sm mt-1">Background video hero or full‑screen modal section, optimized for performance with lazy loading.</p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-4 bg-gray-50/30">
+                    <div class="font-bold text-blue-800 text-lg">🔒 OWASP Top 10 Security (₹30K)</div>
+                    <p class="text-sm mt-1">Complete security audit, implementation of protections (injection, broken auth, sensitive data exposure, XSS, CSRF, etc.), security headers, rate limiting.</p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-4 bg-gray-50/30">
+                    <div class="font-bold text-blue-800 text-lg">⚡ Redis + Kafka (₹8K)</div>
+                    <p class="text-sm mt-1">Redis caching, session store, real‑time message streaming with Kafka for event-driven updates (notifications, analytics pipelines).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. External Interfaces -->
+        <section id="interfaces" class="mb-12 page-break">
+            <h2 class="text-2xl font-bold text-blue-800 border-b border-blue-200 pb-2 mb-4">4. External Interface Requirements</h2>
+            <h3 class="text-xl font-semibold text-gray-800 mt-3 mb-2">4.1 UI / UX Specifications</h3>
+            <table class="requirement-table mb-5">
+                <tr><th width="30%">Interface</th><th>Description</th></tr>
+                <tr><td>Static Frontend</td><td>Mobile-first, fully responsive, fast navigation with lazy-loaded sections (theme sections, 3D, video).</td></tr>
+                <tr><td>Admin Dashboard</td><td>Modern interface with charts, forms for theme sections, multi‑language editor, order/payment overview.</td></tr>
+                <tr><td>3D Viewer</td><td>Canvas‑based embed with intuitive controls (rotate/zoom), fallback for non‑WebGL devices.</td></tr>
+            </table>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mt-5 mb-2">4.2 API & Third‑Party Integrations</h3>
+            <table class="requirement-table">
+                <tr><th>Service</th><th>Provider / Technology</th><th>Purpose</th></tr>
+                <tr><td>Payment Gateway</td><td>Razorpay / Stripe</td><td>Secure online transactions, subscription handling</td></tr>
+                <tr><td>Email/SMS (optional)</td><td>SendGrid / Twilio</td><td>Transactional alerts (can be added, but not core cost)</td></tr>
+                <tr><td>Redis / Kafka</td><td>Upstash Redis + Confluent Kafka / self‑managed</td><td>Caching, real‑time message bus for event streaming</td></tr>
+                <tr><td>3D assets hosting</td><td>CDN or cloud storage</td><td>Efficient delivery of .gltf/.glb files</td></tr>
+            </table>
+        </section>
+
+        <!-- 5. Pricing & Additional Services (Exact cost breakdown as requested) -->
+        <section id="pricing" class="mb-12 page-break">
+            <h2 class="text-2xl font-bold text-blue-800 border-b border-blue-200 pb-2 mb-4">5. Investment Breakdown (As Requested by Pooja Dave)</h2>
+            <p class="mb-4 text-gray-700">Below is the complete cost structure aligned with each requirement. All prices are in <strong>Indian Rupees (₹)</strong> and inclusive of development, integration, and basic testing. <span class="badge">No hidden charges</span></p>
+            
+            <table class="requirement-table cost-table w-full mb-6">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="text-left">Module / Feature</th>
+                        <th class="text-right">Quantity</th>
+                        <th class="text-right">Unit Price (₹)</th>
+                        <th class="text-right">Total (₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Static Website (full responsive, SEO)</td><td class="text-right">1</td><td class="text-right">20,000</td><td class="text-right font-medium">20,000</td></tr>
+                    <tr><td>Payment Gateway Integration</td><td class="text-right">1</td><td class="text-right">10,000</td><td class="text-right">10,000</td></tr>
+                    <tr><td>Database Design & Integration</td><td class="text-right">1</td><td class="text-right">15,000</td><td class="text-right">15,000</td></tr>
+                    <tr><td>Admin Dashboard</td><td class="text-right">1</td><td class="text-right">5,000</td><td class="text-right">5,000</td></tr>
+                    <tr><td>3D Graphics (Three.js / WebGL)</td><td class="text-right">1</td><td class="text-right">6,000</td><td class="text-right">6,000</td></tr>
+                    <tr><td>Custom Theme Sections</td><td class="text-right">3 <span class="text-xs text-gray-500">(base)</span></td><td class="text-right">1,500</td><td class="text-right">4,500</td></tr>
+                    <tr><td class="pl-6 text-gray-500 text-sm" colspan="3">* Additional sections beyond 3: ₹1,500 each</td><td class="text-right text-gray-500"></td></tr>
+                    <tr><td>Multi‑language Support (i18n)</td><td class="text-right">1</td><td class="text-right">3,000</td><td class="text-right">3,000</td></tr>
+                    <tr><td>Founder Profile Page</td><td class="text-right">1</td><td class="text-right">2,000</td><td class="text-right">2,000</td></tr>
+                    <tr><td>Full‑screen Video Component</td><td class="text-right">1</td><td class="text-right">2,000</td><td class="text-right">2,000</td></tr>
+                    <tr><td><span class="font-semibold">🔐 OWASP Top 10 Security Hardening</span> (audit + implementation)</td><td class="text-right">1</td><td class="text-right">30,000</td><td class="text-right font-semibold">30,000</td></tr>
+                    <tr><td>Redis + Kafka (caching & event streaming)</td><td class="text-right">1</td><td class="text-right">8,000</td><td class="text-right">8,000</td></tr>
+                    <tr class="bg-blue-50 font-bold border-t-2 border-blue-200"><td>Total Investment (as per requirement list)</td><td class="text-right"></td><td class="text-right"></td><td class="text-right text-blue-900">₹1,05,500*</td></tr>
+                </tbody>
+            </table>
+            <div class="text-sm text-gray-500 mt-1 italic">*Total based on 3 custom theme sections (more sections can be added at ₹1.5K each). All taxes (GST) extra if applicable. Cost includes delivery of source code, documentation, and one round of revisions per module.</div>
+            
+            <div class="bg-green-50 p-4 rounded-lg mt-6 border-l-4 border-green-600">
+                <p class="font-semibold text-green-800">✅ Value highlights</p>
+                <ul class="list-disc pl-5 text-sm text-green-900">
+                    <li>Static website + all backend services integrated with security first approach</li>
+                    <li>Scalable Redis/Kafka pipeline ready for real‑time analytics and notifications</li>
+                    <li>Full OWASP Top 10 compliance (penetration‑test ready)</li>
+                    <li>Admin dashboard gives control over theme sections, translations, founder profile & transaction logs</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 6. Timeline & Delivery -->
+        <section id="timeline" class="mb-12 page-break">
+            <h2 class="text-2xl font-bold text-blue-800 border-b border-blue-200 pb-2 mb-4">6. Delivery Roadmap & Support</h2>
+            <div class="grid md:grid-cols-2 gap-5">
+                <div>
+                    <h3 class="text-lg font-semibold flex items-center gap-2">📅 Estimated Timeline</h3>
+                    <ul class="list-disc pl-5 space-y-1 mt-2">
+                        <li><strong>Week 1-2:</strong> Static website + theme sections (foundation)</li>
+                        <li><strong>Week 3:</strong> Database, Admin dashboard integration</li>
+                        <li><strong>Week 4:</strong> Payment gateway + Multi-language & Founder profile</li>
+                        <li><strong>Week 5:</strong> 3D Graphics, Full‑screen video, Redis+Kafka setup</li>
+                        <li><strong>Week 6:</strong> OWASP Top 10 hardening, security review & final QA</li>
+                        <li><strong>Week 7:</strong> UAT, deployment, handover</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold flex items-center gap-2">🤝 Support & Maintenance</h3>
+                    <ul class="list-disc pl-5 space-y-1 mt-2">
+                        <li>3 months of free technical support (bug fixes, minor adjustments)</li>
+                        <li>Security patch updates for 6 months</li>
+                        <li>Deployment assistance (any cloud / VPS)</li>
+                        <li>Detailed documentation (API, admin manual, OWASP compliance report)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 7. Appendices -->
+        <section id="appendices" class="mb-12">
+            <h2 class="text-2xl font-bold text-blue-800 border-b border-blue-200 pb-2 mb-4">7. Appendices & Assumptions</h2>
+            <h3 class="font-semibold text-gray-800 mt-2">7.1 Assumptions</h3>
+            <ul class="list-disc pl-6 mb-4">
+                <li>Content (text, images, 3D models, videos) to be provided by Pooja Dave unless otherwise agreed.</li>
+                <li>Third‑party API keys for payment gateway and any external services to be obtained by client or facilitated by Growhaz.</li>
+                <li>Redis / Kafka hosting infrastructure (cloud or self‑hosted) cost is not included in the one‑time fee; we provide setup & configuration, client covers instance costs if using managed services (optional).</li>
+                <li>Additional theme sections beyond 3 will be billed at ₹1,500 per section if requested after project start.</li>
+            </ul>
+            <h3 class="font-semibold text-gray-800 mt-3">7.2 Acceptance Criteria</h3>
+            <p>Each module will be tested against the requirements defined in Section 3. All code delivered via private repository. Final sign‑off after UAT.</p>
+        </section>
+
+        <!-- Approval Section -->
+        <section class="mt-10 pt-4 border-t border-gray-300 page-break">
+            <h2 class="text-2xl font-bold text-blue-800 mb-5">Approval & Agreement</h2>
+            <p class="mb-6">By signing below, Pooja Dave acknowledges receipt of this proposal and agrees to the scope, costs, and terms described. Growhaz commits to delivering all features as per the cost breakdown and project timeline.</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <p class="font-semibold text-gray-700 mb-1">For Growhaz (Provider)</p>
+                    <div class="border-b border-gray-400 w-48 mb-6 mt-2"></div>
+                    <p class="text-sm">Authorized Signatory · Growhaz Tech</p>
+                    <p class="text-sm text-gray-500">Date: ______________</p>
+                </div>
+                <div>
+                    <p class="font-semibold text-gray-700 mb-1">For Pooja Dave (Client)</p>
+                    <div class="border-b border-gray-400 w-48 mb-6 mt-2"></div>
+                    <p class="text-sm">Pooja Dave · Project Owner</p>
+                    <p class="text-sm text-gray-500">Date: ______________</p>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-xs text-gray-400">This document is proprietary to Growhaz and intended solely for Pooja Dave.</div>
+        </section>
+    </div>
+    <script>
+        // Set current date in cover if needed
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateSpan = document.querySelector('.text-right.text-sm.text-gray-500');
+            if(dateSpan && dateSpan.innerText.includes('31 May 2026')) {
+                // keep static reference, but it's fine for demo
+            }
+        });
+    </script>
+</body>
+</html>
