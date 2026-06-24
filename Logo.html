@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NGO Logo</title>
+
+<style>
+body{
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#ffffff;
+    font-family:Arial,sans-serif;
+}
+
+.logo{
+    width:420px;
+    max-width:90vw;
+}
+
+.dark{
+    fill:#263238;
+}
+
+.yellow{
+    fill:#FFF314;
+}
+
+.leaf{
+    fill:#263238;
+}
+
+.leaf-yellow{
+    fill:#FFF314;
+}
+</style>
+</head>
+
+<body>
+
+<svg class="logo" viewBox="0 0 500 500">
+
+    <!-- LEFT HAND -->
+    <path class="dark"
+    d="
+    M95 330
+    C70 290 90 240 140 260
+    C145 220 185 220 185 255
+    C205 245 220 260 215 285
+    C225 315 205 350 170 370
+    C145 385 120 375 95 330
+    "/>
+
+    <!-- RIGHT HAND -->
+    <path class="dark"
+    d="
+    M405 330
+    C430 290 410 240 360 260
+    C355 220 315 220 315 255
+    C295 245 280 260 285 285
+    C275 315 295 350 330 370
+    C355 385 380 375 405 330
+    "/>
+
+    <!-- YELLOW PATH -->
+    <path class="yellow"
+    d="
+    M250 400
+    C215 360 220 330 255 305
+    C290 280 290 250 255 220
+    L285 205
+    C325 245 325 290 285 320
+    C250 345 250 365 280 395
+    Z
+    "/>
+
+    <!-- CENTER PERSON -->
+    <circle cx="250" cy="160" r="12" class="dark"/>
+
+    <path class="dark"
+    d="
+    M235 180
+    C245 205 255 205 265 180
+    L285 225
+    L250 245
+    L215 225
+    Z
+    "/>
+
+    <!-- LEFT PERSON -->
+    <circle cx="175" cy="195" r="10" class="dark"/>
+
+    <path class="dark"
+    d="
+    M165 208
+    L145 255
+    L195 235
+    Z
+    "/>
+
+    <!-- RIGHT PERSON -->
+    <circle cx="325" cy="195" r="10" class="yellow"/>
+
+    <path class="yellow"
+    d="
+    M315 208
+    L305 235
+    L355 255
+    Z
+    "/>
+
+    <!-- TREE LEAVES -->
+    <ellipse cx="250" cy="80" rx="18" ry="35" class="leaf-yellow"/>
+    <ellipse cx="210" cy="105" rx="16" ry="30"
+        transform="rotate(-35 210 105)"
+        class="leaf"/>
+    <ellipse cx="290" cy="105" rx="16" ry="30"
+        transform="rotate(35 290 105)"
+        class="leaf"/>
+
+    <ellipse cx="185" cy="145" rx="14" ry="24"
+        transform="rotate(-70 185 145)"
+        class="leaf"/>
+
+    <ellipse cx="315" cy="145" rx="14" ry="24"
+        transform="rotate(70 315 145)"
+        class="leaf-yellow"/>
+
+    <ellipse cx="225" cy="140" rx="10" ry="18" class="leaf"/>
+    <ellipse cx="275" cy="140" rx="10" ry="18" class="leaf"/>
+
+</svg>
+
+<script>
+// Reserved for future animations if desired.
+</script>
+
+</body>
+</html>
