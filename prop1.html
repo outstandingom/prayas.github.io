@@ -14,9 +14,8 @@
         .req-card { transition: all 0.15s ease; border: 1px solid #e2e8f0; }
         .req-card:hover { border-color: #b91c1c; box-shadow: 0 4px 12px rgba(185,28,28,0.08); }
         .badge-tech { background: #1e293b; color: #e2e8f0; font-size: 0.7rem; padding: 2px 10px; border-radius: 9999px; display: inline-block; }
-        .tag-mardini { background: #fee2e2; color: #b91c1c; font-weight: 600; }
-        .tag-shakti { background: #d1fae5; color: #065f46; font-weight: 600; }
-        .tag-varta { background: #e0e7ff; color: #3730a3; font-weight: 600; }
+        .core-highlight { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border: 2px solid #d97706; }
+        .aaryaveera-glow { box-shadow: 0 0 25px rgba(217, 119, 6, 0.35); }
         @media print {
             body { background: white; font-size: 10.5pt; }
             .no-print { display: none !important; }
@@ -24,8 +23,8 @@
             section:first-child { page-break-before: avoid; }
             .page-break { page-break-after: always; }
             .req-card { break-inside: avoid; }
+            .core-highlight { break-inside: avoid; }
         }
-        .bank-details { background: #f0fdf4; border-left: 5px solid #22c55e; }
     </style>
 </head>
 <body class="p-4 md:p-8 max-w-6xl mx-auto">
@@ -35,7 +34,7 @@
         <button onclick="window.print()" class="bg-red-800 hover:bg-red-900 text-white px-6 py-2 rounded-lg text-sm font-semibold shadow-md transition flex items-center gap-2">
             📄 Save as PDF / Print SRS
         </button>
-        <div class="text-sm text-gray-500 bg-white px-4 py-1.5 rounded-full shadow-sm border">SRS v1.0 · Project Shakti Sabha</div>
+        <div class="text-sm text-gray-500 bg-white px-4 py-1.5 rounded-full shadow-sm border">SRS v1.1 · Project Shakti Sabha</div>
     </div>
 
     <!-- Main Document Container -->
@@ -44,7 +43,7 @@
         <!-- ==================== COVER PAGE ==================== -->
         <header class="text-center mb-12 border-b-2 border-red-800 pb-8">
             <div class="flex justify-between items-start flex-wrap gap-3 mb-6 text-sm text-gray-500">
-                <div>📋 SRS ID: SS-SRS-2026-v1.0</div>
+                <div>📋 SRS ID: SS-SRS-2026-v1.1</div>
                 <div>📅 8 June 2026</div>
                 <div>🔒 Confidential</div>
             </div>
@@ -54,14 +53,20 @@
             </div>
             <h1 class="text-3xl font-extrabold text-gray-800 mt-4">Software Requirements Specification</h1>
             <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto">Digital Architecture & Content Blueprint for the Union of Peace and Revolution</p>
+
+            <!-- Aaryaveera Core Highlight Badge -->
+            <div class="core-highlight aaryaveera-glow inline-block mt-6 px-6 py-3 rounded-full">
+                <span class="text-xs font-bold text-amber-700 uppercase tracking-widest">Core Highlight</span>
+                <div class="text-2xl font-black text-amber-900 tracking-tight">AARYAVEERA</div>
+                <div class="text-xs text-amber-800 font-medium">The Warrior Spirit · Powered by PrintingTask</div>
+            </div>
+
             <div class="flex justify-center gap-4 mt-6 flex-wrap">
                 <span class="bg-red-100 text-red-800 px-4 py-1.5 rounded-full text-sm font-semibold">Mission MARDINI</span>
                 <span class="bg-emerald-100 text-emerald-800 px-4 py-1.5 rounded-full text-sm font-semibold">Shakti Bhava</span>
                 <span class="bg-indigo-100 text-indigo-800 px-4 py-1.5 rounded-full text-sm font-semibold">Shakti Varta</span>
             </div>
             <div class="mt-8 text-sm text-gray-500 border-t border-gray-200 pt-4">
-                <p><strong>Prepared for:</strong> SMT POOJA DAVE JI · Prayas Samaj Sevi Sanstha Indore</p>
-                <p><strong>Prepared by:</strong> Growhaz Technology Team · Raj Parmar (Founder) · Om Uikey (Co-Founder)</p>
                 <p class="mt-1 text-xs">This document defines the functional and non-functional requirements for the Shakti Sabha digital platform.</p>
             </div>
         </header>
@@ -71,21 +76,22 @@
             <h2 class="text-xl font-bold text-red-800 section-title mb-4">📑 Table of Contents</h2>
             <div class="grid md:grid-cols-2 gap-x-8 gap-y-1 text-sm">
                 <a href="#intro" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">1. Introduction & Project Overview</a>
-                <a href="#logo" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">2. Logo & Brand Identity</a>
-                <a href="#banners" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">3. Banners & Visual Assets</a>
-                <a href="#profile" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">4. Profile — One Platform Content</a>
-                <a href="#uiux" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">5. UI/UX — Animations, Hover Effects</a>
-                <a href="#socialwork" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">6. Social Work Module</a>
-                <a href="#casestudy" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">7. Case Study Blog</a>
-                <a href="#events" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">8. Events Management</a>
-                <a href="#halfhelp" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">9. Half / Help — Agency, NGO, Student Work</a>
-                <a href="#courses" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">10. Courses & LMS</a>
-                <a href="#research" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">11. Research Papers & Thought-Lab</a>
-                <a href="#payment" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">12. Payment Gateway & Monetization</a>
-                <a href="#security" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">13. Security & Anonymity Engineering</a>
-                <a href="#techstack" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">14. Technology Stack & Architecture</a>
-                <a href="#timeline" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">15. Delivery Timeline & Milestones</a>
-                <a href="#appendix" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">16. Appendix & Terms</a>
+                <a href="#aaryaveera" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">2. Core Highlight — Aaryaveera</a>
+                <a href="#logo" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">3. Logo & Brand Identity</a>
+                <a href="#banners" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">4. Banners & Visual Assets</a>
+                <a href="#profile" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">5. Profile — One Platform Content</a>
+                <a href="#uiux" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">6. UI/UX — Animations, Hover Effects</a>
+                <a href="#socialwork" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">7. Social Work Module</a>
+                <a href="#casestudy" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">8. Case Study Blog</a>
+                <a href="#events" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">9. Events Management</a>
+                <a href="#halfhelp" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">10. Half / Help — Agency, NGO, Student Work</a>
+                <a href="#courses" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">11. Courses & LMS</a>
+                <a href="#research" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">12. Research Papers & Thought-Lab</a>
+                <a href="#payment" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">13. Payment Gateway & Monetization</a>
+                <a href="#security" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">14. Security & Anonymity Engineering</a>
+                <a href="#techstack" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">15. Technology Stack & Architecture</a>
+                <a href="#timeline" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">16. Delivery Timeline & Milestones</a>
+                <a href="#appendix" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">17. Appendix & Terms</a>
             </div>
         </section>
 
@@ -95,7 +101,7 @@
             <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
                 <h3 class="text-lg font-semibold text-gray-800 mb-2">1.1 Purpose</h3>
                 <p class="text-gray-700 mb-3">This SRS defines the complete digital architecture for <strong>Shakti Sabha</strong> — a unified platform reflecting 12 years of genuine on-ground impact, core philosophy, and financial sustainability goals. The platform embodies the <em>"Union of Peace and Revolution"</em> through three pillars: <strong>Mardini</strong> (Revolution), <strong>Shakti Bhava</strong> (Peace/Healing), and <strong>Shakti Varta</strong> (Intellectual Discourse).</p>
-                
+
                 <h3 class="text-lg font-semibold text-gray-800 mt-4 mb-2">1.2 Scope</h3>
                 <ul class="list-disc pl-5 space-y-1 text-gray-700">
                     <li>Fully bilingual (Hindi + English) with seamless language switching</li>
@@ -123,16 +129,71 @@
             </div>
         </section>
 
-        <!-- ==================== 2. LOGO ==================== -->
+        <!-- ==================== 2. CORE HIGHLIGHT — AARYAVEERA ==================== -->
+        <section id="aaryaveera" class="mb-12 page-break">
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">2. Core Highlight — Aaryaveera</h2>
+
+            <div class="core-highlight aaryaveera-glow p-6 rounded-2xl mb-6">
+                <div class="flex items-center gap-4 flex-wrap">
+                    <div>
+                        <span class="text-xs font-bold text-amber-700 uppercase tracking-widest">Signature Initiative</span>
+                        <div class="text-4xl font-black text-amber-900 tracking-tight">AARYAVEERA</div>
+                        <div class="text-sm text-amber-800 font-medium mt-1">The Warrior Spirit · आर्यवीरा</div>
+                    </div>
+                    <div class="ml-auto text-right">
+                        <div class="text-xs text-amber-700">Powered by</div>
+                        <div class="text-xl font-extrabold text-amber-900">PrintingTask</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">🌟 What is Aaryaveera?</h3>
+                    <p class="text-sm text-gray-700 mb-3">Aaryaveera is the flagship identity of Shakti Sabha's revolutionary spirit — representing the awakened warrior within every woman and the noble masculinity (Paurush) that protects Dharma. It is the unifying symbol that bridges Mission Mardini, Shakti Bhava, and Shakti Varta.</p>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li><strong>Symbolism:</strong> The flame of revolution + the lotus of peace</li>
+                        <li><strong>Motto:</strong> "Shakti Se Shanti" — From Strength, Peace</li>
+                        <li><strong>Manifestation:</strong> Self-defense training, character building, cultural awakening</li>
+                    </ul>
+                </div>
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">🎯 Platform Integration</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li><strong>Homepage Hero:</strong> Aaryaveera branding with animated warrior emblem</li>
+                        <li><strong>Course Branding:</strong> Aaryaveera Self-Defense & Leadership programs</li>
+                        <li><strong>Event Series:</strong> Aaryaveera Camps & Workshops</li>
+                        <li><strong>Merchandise:</strong> Aaryaveera T-shirts, books, value products</li>
+                        <li><strong>Podcast:</strong> "Aaryaveera Dialogues" under Shakti Varta</li>
+                        <li><strong>Certification:</strong> Aaryaveera Warrior Certification for course graduates</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-4 bg-amber-50 border border-amber-200 p-4 rounded-xl">
+                <h4 class="font-bold text-amber-900 text-sm mb-2">📌 Brand Assets Required for Aaryaveera</h4>
+                <div class="grid md:grid-cols-3 gap-3 text-xs text-amber-800">
+                    <div>🖼️ Aaryaveera Logo (standalone)</div>
+                    <div>🎨 Warrior Emblem / Motif</div>
+                    <div>📜 Brand Story & Manifesto</div>
+                    <div>🎬 Animated Intro (5 sec)</div>
+                    <div>🏷️ Merchandise Mockups</div>
+                    <div>📱 Social Media Kit</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 3. LOGO ==================== -->
         <section id="logo" class="mb-12">
-            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">2. Logo & Brand Identity</h2>
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">3. Logo & Brand Identity</h2>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="req-card p-5 rounded-xl bg-white">
                     <h3 class="font-bold text-lg text-gray-800 mb-3">🎨 Logo Design Requirements</h3>
                     <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
                         <li><strong>Primary Logo:</strong> "Shakti Sabha" wordmark with symbolic icon representing the union of peace (lotus/olive branch) and revolution (flame/fist)</li>
+                        <li><strong>Aaryaveera Sub-Logo:</strong> Warrior emblem with flame + lotus integration</li>
                         <li><strong>Color Palette:</strong> Crimson Red (#D9381E) + Matte Brass Gold for Revolution; Sage Green (#3D5A45) + Warm Sandstone for Peace</li>
-                        <li><strong>Typography:</strong> Bold, modern sans-serif with Devanagari script integration for "शक्ति सभा"</li>
+                        <li><strong>Typography:</strong> Bold, modern sans-serif with Devanagari script integration for "शक्ति सभा" and "आर्यवीरा"</li>
                         <li><strong>Variants:</strong> Full logo, icon-only, horizontal, vertical, monochrome</li>
                         <li><strong>File Formats:</strong> SVG, PNG (transparent), PDF, AI source files</li>
                         <li><strong>Usage Guidelines:</strong> Minimum clear space, do's & don'ts, color codes (HEX, RGB, CMYK)</li>
@@ -142,26 +203,25 @@
                     <h3 class="font-bold text-lg text-gray-800 mb-3">📦 Deliverables</h3>
                     <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
                         <li>Logo design (3 initial concepts, 2 revision rounds)</li>
+                        <li>Aaryaveera signature emblem (3 concepts, 2 revisions)</li>
                         <li>Brand guidelines document (PDF, 10-15 pages)</li>
                         <li>Social media profile kit (profile pic, cover images)</li>
                         <li>Favicon and app icon (multiple sizes)</li>
                         <li>Letterhead, envelope, and visiting card templates</li>
                     </ul>
-                    <div class="mt-3 bg-amber-50 border border-amber-200 p-3 rounded-lg text-xs text-amber-800">
-                        ⚠️ <strong>Note:</strong> Final logo files must be approved by SMT POOJA DAVE JI before website development begins.
-                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==================== 3. BANNERS ==================== -->
+        <!-- ==================== 4. BANNERS ==================== -->
         <section id="banners" class="mb-12 page-break">
-            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">3. Banners & Visual Assets</h2>
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">4. Banners & Visual Assets</h2>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="req-card p-5 rounded-xl">
                     <h3 class="font-bold text-lg text-gray-800 mb-3">🖼️ Homepage Banners</h3>
                     <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
                         <li><strong>Hero Banner:</strong> Fullscreen video (autoplay muted, loop) with overlay text — "12 Years of Shakti · Union of Peace & Revolution"</li>
+                        <li><strong>Aaryaveera Banner:</strong> Dedicated rotating banner for the signature initiative</li>
                         <li><strong>Pillar Banners:</strong> Three distinct visual banners for Mardini, Shakti Bhava, Shakti Varta</li>
                         <li><strong>Impact Banner:</strong> Live counters (12 Years, 400+ Schools, Villages reached)</li>
                         <li><strong>CTA Banners:</strong> Donate Now, Join Volunteer, Book a Camp</li>
@@ -178,14 +238,11 @@
                     </ul>
                 </div>
             </div>
-            <div class="mt-4 bg-gray-100 p-4 rounded-lg text-sm text-gray-700">
-                💡 <strong>Dynamic Banners:</strong> Admin dashboard must allow uploading/replacing banners without code changes. All banners to be responsive and lazy-loaded.
-            </div>
         </section>
 
-        <!-- ==================== 4. PROFILE ==================== -->
+        <!-- ==================== 5. PROFILE ==================== -->
         <section id="profile" class="mb-12">
-            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">4. Profile — One Platform Content</h2>
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">5. Profile — One Platform Content</h2>
             <div class="req-card p-5 rounded-xl mb-4">
                 <h3 class="font-bold text-lg text-gray-800 mb-3">👤 Unified Profile System</h3>
                 <p class="text-sm text-gray-700 mb-3">A single, centralized profile module that serves as the content backbone across all sections — founder, team, volunteers, and partners.</p>
@@ -215,15 +272,16 @@
             </div>
         </section>
 
-        <!-- ==================== 5. UI/UX ==================== -->
+        <!-- ==================== 6. UI/UX ==================== -->
         <section id="uiux" class="mb-12 page-break">
-            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">5. UI/UX — Animations, Hover Effects & Design System</h2>
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">6. UI/UX — Animations, Hover Effects & Design System</h2>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="req-card p-5 rounded-xl">
                     <h3 class="font-bold text-lg text-gray-800 mb-3">✨ Animation Requirements</h3>
                     <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
                         <li><strong>Scroll-triggered:</strong> Fade-in, slide-up, parallax on section entry</li>
                         <li><strong>Micro-interactions:</strong> Button ripple, icon pulse, counter animation</li>
+                        <li><strong>Aaryaveera Emblem:</strong> Flame flicker animation on hover</li>
                         <li><strong>Page transitions:</strong> Smooth fade between routes (Next.js)</li>
                         <li><strong>Video banners:</strong> Autoplay with subtle Ken Burns effect</li>
                         <li><strong>Loading states:</strong> Skeleton screens for galleries, blogs, courses</li>
@@ -236,7 +294,7 @@
                         <li><strong>Buttons:</strong> Color shift + slight scale (1.02)</li>
                         <li><strong>Navigation:</strong> Underline slide-in, dropdown fade</li>
                         <li><strong>Images:</strong> Zoom-in (scale 1.05) with overlay text reveal</li>
-                        <li><strong>Links:</strong> Color change + arrow slide</li>
+                        <li><strong>Aaryaveera Badge:</strong> Golden glow intensify on hover</li>
                     </ul>
                 </div>
             </div>
@@ -245,16 +303,16 @@
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
                     <div class="bg-red-50 p-3 rounded-lg text-center"><span class="font-bold text-red-800">Primary</span><br>#D9381E</div>
                     <div class="bg-emerald-50 p-3 rounded-lg text-center"><span class="font-bold text-emerald-800">Secondary</span><br>#3D5A45</div>
-                    <div class="bg-amber-50 p-3 rounded-lg text-center"><span class="font-bold text-amber-800">Accent</span><br>#C9A96E</div>
+                    <div class="bg-amber-50 p-3 rounded-lg text-center"><span class="font-bold text-amber-800">Aaryaveera</span><br>#C9A96E</div>
                     <div class="bg-gray-100 p-3 rounded-lg text-center"><span class="font-bold text-gray-800">Neutral</span><br>#1E293B</div>
                 </div>
                 <p class="text-xs text-gray-500 mt-3">Typography: Inter (Latin) + Noto Sans Devanagari (Hindi). Spacing scale: 4px base unit. Border radius: 8px / 16px / 24px.</p>
             </div>
         </section>
 
-        <!-- ==================== 6. SOCIAL WORK ==================== -->
+        <!-- ==================== 7. SOCIAL WORK ==================== -->
         <section id="socialwork" class="mb-12">
-            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">6. Social Work Module</h2>
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">7. Social Work Module</h2>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="req-card p-5 rounded-xl">
                     <h3 class="font-bold text-lg text-gray-800 mb-3">🌍 On-Ground Impact</h3>
@@ -278,9 +336,9 @@
             </div>
         </section>
 
-        <!-- ==================== 7. CASE STUDY BLOG ==================== -->
+        <!-- ==================== 8. CASE STUDY BLOG ==================== -->
         <section id="casestudy" class="mb-12 page-break">
-            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">7. Case Study Blog</h2>
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">8. Case Study Blog</h2>
             <div class="req-card p-5 rounded-xl mb-4">
                 <h3 class="font-bold text-lg text-gray-800 mb-3">📝 Anonymized, Taboo-Breaking, Powerful</h3>
                 <p class="text-sm text-gray-700 mb-3">A secure, anonymized blog platform for sharing real case studies — counseling human trafficking survivors, PTSD, depression, puberty challenges — without compromising identities.</p>
@@ -311,9 +369,9 @@
             </div>
         </section>
 
-        <!-- ==================== 8. EVENTS ==================== -->
+        <!-- ==================== 9. EVENTS ==================== -->
         <section id="events" class="mb-12">
-            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">8. Events Management</h2>
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">9. Events Management</h2>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="req-card p-5 rounded-xl">
                     <h3 class="font-bold text-lg text-gray-800 mb-3">📅 Live Event Calendar</h3>
@@ -323,6 +381,7 @@
                         <li>Slot booking with instant payment</li>
                         <li>Event details: date, time, venue, speakers, agenda</li>
                         <li>Registration confirmation via email/SMS</li>
+                        <li><strong>Aaryaveera Camp Series:</strong> Special branding for Aaryaveera events</li>
                     </ul>
                 </div>
                 <div class="req-card p-5 rounded-xl">
@@ -338,9 +397,9 @@
             </div>
         </section>
 
-        <!-- ==================== 9. HALF / HELP ==================== -->
+        <!-- ==================== 10. HALF / HELP ==================== -->
         <section id="halfhelp" class="mb-12 page-break">
-            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">9. Half / Help — Agency, NGO, Student Work</h2>
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">10. Half / Help — Agency, NGO, Student Work</h2>
             <div class="req-card p-5 rounded-xl mb-4">
                 <div class="flex items-center gap-3 mb-3">
                     <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-bold">WORDING PENDING CONFIRMATION</span>
@@ -382,14 +441,15 @@
             </div>
         </section>
 
-        <!-- ==================== 10. COURSES ==================== -->
+        <!-- ==================== 11. COURSES ==================== -->
         <section id="courses" class="mb-12">
-            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">10. Courses & Learning Management System (LMS)</h2>
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">11. Courses & Learning Management System (LMS)</h2>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="req-card p-5 rounded-xl">
                     <h3 class="font-bold text-lg text-gray-800 mb-3">🎓 Course Features</h3>
                     <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
                         <li><strong>Paid Courses:</strong> Character Building, Vedic Parenting, Self-Defense, Leadership</li>
+                        <li><strong>Aaryaveera Certification:</strong> Warrior Spirit program with certification</li>
                         <li><strong>DRM Protected Streaming:</strong> AWS CloudFront signed URLs — prevents download/recording</li>
                         <li><strong>Progress Tracking:</strong> Module completion, quizzes, certificates</li>
                         <li><strong>Video Player:</strong> Custom controls, speed adjustment, notes</li>
@@ -400,6 +460,7 @@
                     <h3 class="font-bold text-lg text-gray-800 mb-3">🛒 E-Commerce Store</h3>
                     <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
                         <li>Books, T-shirts, value-earning products</li>
+                        <li>Aaryaveera merchandise line</li>
                         <li>Clean checkout flow (Razorpay + Stripe)</li>
                         <li>UPI, Credit Card, International Payments</li>
                         <li>Order tracking & invoice generation</li>
@@ -412,9 +473,9 @@
             </div>
         </section>
 
-        <!-- ==================== 11. RESEARCH PAPERS ==================== -->
+        <!-- ==================== 12. RESEARCH PAPERS ==================== -->
         <section id="research" class="mb-12 page-break">
-            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">11. Research Papers & Thought-Lab</h2>
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">12. Research Papers & Thought-Lab</h2>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="req-card p-5 rounded-xl">
                     <h3 class="font-bold text-lg text-gray-800 mb-3">📚 Thought-Lab (The Think-Tank)</h3>
@@ -439,9 +500,9 @@
             </div>
         </section>
 
-        <!-- ==================== 12. PAYMENT GATEWAY ==================== -->
+        <!-- ==================== 13. PAYMENT GATEWAY ==================== -->
         <section id="payment" class="mb-12">
-            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">12. Payment Gateway & Monetization</h2>
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">13. Payment Gateway & Monetization</h2>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="req-card p-5 rounded-xl">
                     <h3 class="font-bold text-lg text-gray-800 mb-3">💳 Payment Integration</h3>
@@ -464,21 +525,11 @@
                     </ul>
                 </div>
             </div>
-            <div class="mt-4 bank-details p-4 rounded-xl">
-                <h3 class="font-bold text-md text-green-800 mb-2">🏦 Bank Details for Payments (as per proposal)</h3>
-                <table class="w-full text-sm">
-                    <tr class="border-b border-green-100"><td class="py-1.5 font-semibold w-44">Account Holder</td><td>: Om Uikey (Co-Founder)</td></tr>
-                    <tr class="border-b border-green-100"><td class="py-1.5 font-semibold">Bank</td><td>: India Post Payment Bank</td></tr>
-                    <tr class="border-b border-green-100"><td class="py-1.5 font-semibold">Account Number</td><td>: <span class="font-mono font-bold">027510018499</span></td></tr>
-                    <tr><td class="py-1.5 font-semibold">IFSC Code</td><td>: <span class="font-mono font-bold">IPOS0000001</span></td></tr>
-                </table>
-                <p class="text-xs text-gray-600 mt-2">🔐 UTR mandatory — send to info.growhaz.@gmail.com after each payment.</p>
-            </div>
         </section>
 
-        <!-- ==================== 13. SECURITY ==================== -->
+        <!-- ==================== 14. SECURITY ==================== -->
         <section id="security" class="mb-12 page-break">
-            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">13. Security & Anonymity Engineering</h2>
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">14. Security & Anonymity Engineering</h2>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="req-card p-5 rounded-xl">
                     <h3 class="font-bold text-lg text-gray-800 mb-3">🔒 Data Protection</h3>
@@ -503,9 +554,9 @@
             </div>
         </section>
 
-        <!-- ==================== 14. TECH STACK ==================== -->
+        <!-- ==================== 15. TECH STACK ==================== -->
         <section id="techstack" class="mb-12">
-            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">14. Technology Stack & Architecture</h2>
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">15. Technology Stack & Architecture</h2>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="req-card p-5 rounded-xl">
                     <h3 class="font-bold text-lg text-gray-800 mb-3">⚙️ Core Technologies</h3>
@@ -537,9 +588,9 @@
             </div>
         </section>
 
-        <!-- ==================== 15. TIMELINE ==================== -->
+        <!-- ==================== 16. TIMELINE ==================== -->
         <section id="timeline" class="mb-12 page-break">
-            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">15. Delivery Timeline & Milestones</h2>
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">16. Delivery Timeline & Milestones</h2>
             <div class="bg-green-50 p-5 rounded-xl border border-green-200">
                 <div class="flex items-center gap-3 flex-wrap mb-4">
                     <span class="bg-green-700 text-white px-3 py-1 rounded-full text-sm font-bold">⚡ Commitment</span>
@@ -549,7 +600,7 @@
                     <div>
                         <p class="font-semibold text-gray-800 mb-2">📅 Milestones:</p>
                         <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li><strong>Day 1-5:</strong> Logo, brand identity, design system, homepage UI</li>
+                            <li><strong>Day 1-5:</strong> Logo, Aaryaveera emblem, brand identity, design system, homepage UI</li>
                             <li><strong>Day 6-10:</strong> Social work, case study blog, events, profile modules</li>
                             <li><strong>Day 11-15:</strong> Courses/LMS, research papers, payment gateway integration</li>
                             <li><strong>Day 16-18:</strong> Half/Help module, security hardening, bilingual setup</li>
@@ -569,9 +620,9 @@
             </div>
         </section>
 
-        <!-- ==================== 16. APPENDIX ==================== -->
+        <!-- ==================== 17. APPENDIX ==================== -->
         <section id="appendix" class="mb-8">
-            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">16. Appendix & Terms</h2>
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">17. Appendix & Terms</h2>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="req-card p-5 rounded-xl">
                     <h3 class="font-bold text-lg text-gray-800 mb-3">📋 Open Questions for Client</h3>
@@ -581,6 +632,7 @@
                         <li>Is the 12-year media archive structured or needs ingestion plan?</li>
                         <li>Final wording for "Half / Help" module?</li>
                         <li>Domain name & hosting preference?</li>
+                        <li>Aaryaveera brand story & manifesto finalization?</li>
                     </ul>
                 </div>
                 <div class="req-card p-5 rounded-xl">
@@ -595,10 +647,18 @@
                     </ul>
                 </div>
             </div>
+
+            <!-- Aaryaveera Signature Block -->
+            <div class="core-highlight aaryaveera-glow mt-6 p-6 rounded-2xl text-center">
+                <div class="text-xs font-bold text-amber-700 uppercase tracking-widest">Core Highlight · Signature Initiative</div>
+                <div class="text-3xl font-black text-amber-900 tracking-tight mt-1">AARYAVEERA</div>
+                <div class="text-sm text-amber-800 font-medium">The Warrior Spirit · शक्ति से शांति</div>
+                <div class="mt-2 text-xs text-amber-700">Powered by <span class="font-bold">PrintingTask</span></div>
+            </div>
+
             <div class="mt-6 bg-gray-100 p-5 rounded-xl text-center">
-                <p class="text-sm text-gray-600">Prepared by <strong>Growhaz Technology Team</strong> · Raj Parmar (Founder) & Om Uikey (Co-Founder)</p>
-                <p class="text-xs text-gray-500 mt-1">For SMT POOJA DAVE JI · Prayas Samaj Sevi Sanstha Indore · 8 June 2026</p>
-                <p class="text-xs text-gray-400 mt-2">SRS v1.0 · Confidential · Page 1 of 1</p>
+                <p class="text-sm text-gray-600">Document prepared by <strong>PrintingTask</strong> · Digital Solutions Division</p>
+                <p class="text-xs text-gray-500 mt-1">SRS v1.1 · Confidential · Page 1 of 1</p>
             </div>
         </section>
 
@@ -606,7 +666,7 @@
 
     <!-- Footer -->
     <div class="no-print text-center text-xs text-gray-400 mt-6 mb-4">
-        Shakti Sabha SRS · Union of Peace and Revolution · 12 Years of Impact
+        Shakti Sabha SRS · Union of Peace and Revolution · 12 Years of Impact · Aaryaveera Core Highlight
     </div>
 
 </body>
