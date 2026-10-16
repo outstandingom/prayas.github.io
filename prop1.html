@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRS · Shakti Sabha | Software Requirements Specification</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; background: #f8fafc; }
+        .section-title { border-left: 6px solid #b91c1c; padding-left: 1rem; }
+        .req-card { transition: all 0.15s ease; border: 1px solid #e2e8f0; }
+        .req-card:hover { border-color: #b91c1c; box-shadow: 0 4px 12px rgba(185,28,28,0.08); }
+        .badge-tech { background: #1e293b; color: #e2e8f0; font-size: 0.7rem; padding: 2px 10px; border-radius: 9999px; display: inline-block; }
+        .tag-mardini { background: #fee2e2; color: #b91c1c; font-weight: 600; }
+        .tag-shakti { background: #d1fae5; color: #065f46; font-weight: 600; }
+        .tag-varta { background: #e0e7ff; color: #3730a3; font-weight: 600; }
+        @media print {
+            body { background: white; font-size: 10.5pt; }
+            .no-print { display: none !important; }
+            section { page-break-before: always; }
+            section:first-child { page-break-before: avoid; }
+            .page-break { page-break-after: always; }
+            .req-card { break-inside: avoid; }
+        }
+        .bank-details { background: #f0fdf4; border-left: 5px solid #22c55e; }
+    </style>
+</head>
+<body class="p-4 md:p-8 max-w-6xl mx-auto">
+
+    <!-- Print/Save Button -->
+    <div class="no-print flex justify-between items-center mb-6">
+        <button onclick="window.print()" class="bg-red-800 hover:bg-red-900 text-white px-6 py-2 rounded-lg text-sm font-semibold shadow-md transition flex items-center gap-2">
+            📄 Save as PDF / Print SRS
+        </button>
+        <div class="text-sm text-gray-500 bg-white px-4 py-1.5 rounded-full shadow-sm border">SRS v1.0 · Project Shakti Sabha</div>
+    </div>
+
+    <!-- Main Document Container -->
+    <div class="bg-white p-6 md:p-10 rounded-2xl shadow-xl border border-gray-100">
+
+        <!-- ==================== COVER PAGE ==================== -->
+        <header class="text-center mb-12 border-b-2 border-red-800 pb-8">
+            <div class="flex justify-between items-start flex-wrap gap-3 mb-6 text-sm text-gray-500">
+                <div>📋 SRS ID: SS-SRS-2026-v1.0</div>
+                <div>📅 8 June 2026</div>
+                <div>🔒 Confidential</div>
+            </div>
+            <div class="mb-4">
+                <span class="text-6xl font-black tracking-tight text-red-800">Shakti Sabha</span>
+                <div class="text-2xl font-light text-gray-600 mt-1">शक्ति सभा</div>
+            </div>
+            <h1 class="text-3xl font-extrabold text-gray-800 mt-4">Software Requirements Specification</h1>
+            <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto">Digital Architecture & Content Blueprint for the Union of Peace and Revolution</p>
+            <div class="flex justify-center gap-4 mt-6 flex-wrap">
+                <span class="bg-red-100 text-red-800 px-4 py-1.5 rounded-full text-sm font-semibold">Mission MARDINI</span>
+                <span class="bg-emerald-100 text-emerald-800 px-4 py-1.5 rounded-full text-sm font-semibold">Shakti Bhava</span>
+                <span class="bg-indigo-100 text-indigo-800 px-4 py-1.5 rounded-full text-sm font-semibold">Shakti Varta</span>
+            </div>
+            <div class="mt-8 text-sm text-gray-500 border-t border-gray-200 pt-4">
+                <p><strong>Prepared for:</strong> SMT POOJA DAVE JI · Prayas Samaj Sevi Sanstha Indore</p>
+                <p><strong>Prepared by:</strong> Growhaz Technology Team · Raj Parmar (Founder) · Om Uikey (Co-Founder)</p>
+                <p class="mt-1 text-xs">This document defines the functional and non-functional requirements for the Shakti Sabha digital platform.</p>
+            </div>
+        </header>
+
+        <!-- ==================== TABLE OF CONTENTS ==================== -->
+        <section class="mb-12">
+            <h2 class="text-xl font-bold text-red-800 section-title mb-4">📑 Table of Contents</h2>
+            <div class="grid md:grid-cols-2 gap-x-8 gap-y-1 text-sm">
+                <a href="#intro" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">1. Introduction & Project Overview</a>
+                <a href="#logo" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">2. Logo & Brand Identity</a>
+                <a href="#banners" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">3. Banners & Visual Assets</a>
+                <a href="#profile" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">4. Profile — One Platform Content</a>
+                <a href="#uiux" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">5. UI/UX — Animations, Hover Effects</a>
+                <a href="#socialwork" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">6. Social Work Module</a>
+                <a href="#casestudy" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">7. Case Study Blog</a>
+                <a href="#events" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">8. Events Management</a>
+                <a href="#halfhelp" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">9. Half / Help — Agency, NGO, Student Work</a>
+                <a href="#courses" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">10. Courses & LMS</a>
+                <a href="#research" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">11. Research Papers & Thought-Lab</a>
+                <a href="#payment" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">12. Payment Gateway & Monetization</a>
+                <a href="#security" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">13. Security & Anonymity Engineering</a>
+                <a href="#techstack" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">14. Technology Stack & Architecture</a>
+                <a href="#timeline" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">15. Delivery Timeline & Milestones</a>
+                <a href="#appendix" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">16. Appendix & Terms</a>
+            </div>
+        </section>
+
+        <!-- ==================== 1. INTRODUCTION ==================== -->
+        <section id="intro" class="mb-12 page-break">
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">1. Introduction & Project Overview</h2>
+            <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">1.1 Purpose</h3>
+                <p class="text-gray-700 mb-3">This SRS defines the complete digital architecture for <strong>Shakti Sabha</strong> — a unified platform reflecting 12 years of genuine on-ground impact, core philosophy, and financial sustainability goals. The platform embodies the <em>"Union of Peace and Revolution"</em> through three pillars: <strong>Mardini</strong> (Revolution), <strong>Shakti Bhava</strong> (Peace/Healing), and <strong>Shakti Varta</strong> (Intellectual Discourse).</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-4 mb-2">1.2 Scope</h3>
+                <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                    <li>Fully bilingual (Hindi + English) with seamless language switching</li>
+                    <li>Secure, fast-loading modules built on Next.js front-end and AWS cloud backend</li>
+                    <li>Integrated monetization: LMS, e-commerce, camp bookings, donations, events</li>
+                    <li>Zero-knowledge encryption for sensitive counseling and case study data</li>
+                    <li>Global talent & volunteer onboarding pipeline</li>
+                </ul>
+
+                <h3 class="text-lg font-semibold text-gray-800 mt-4 mb-2">1.3 Core Pillars</h3>
+                <div class="grid md:grid-cols-3 gap-4 mt-3">
+                    <div class="bg-red-50 border border-red-200 p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-red-800">MARDINI</div>
+                        <p class="text-sm text-gray-600 mt-1">The Revolution — self-defense, archival workshops, geographic reach</p>
+                    </div>
+                    <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-emerald-800">Shakti Bhava</div>
+                        <p class="text-sm text-gray-600 mt-1">The Healing Space — counseling, taboo-breaking articles, survivor support</p>
+                    </div>
+                    <div class="bg-indigo-50 border border-indigo-200 p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-indigo-800">Shakti Varta</div>
+                        <p class="text-sm text-gray-600 mt-1">Intellectual Discourse — podcasts, seminars, true masculinity (Paurush)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 2. LOGO ==================== -->
+        <section id="logo" class="mb-12">
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">2. Logo & Brand Identity</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="req-card p-5 rounded-xl bg-white">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">🎨 Logo Design Requirements</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li><strong>Primary Logo:</strong> "Shakti Sabha" wordmark with symbolic icon representing the union of peace (lotus/olive branch) and revolution (flame/fist)</li>
+                        <li><strong>Color Palette:</strong> Crimson Red (#D9381E) + Matte Brass Gold for Revolution; Sage Green (#3D5A45) + Warm Sandstone for Peace</li>
+                        <li><strong>Typography:</strong> Bold, modern sans-serif with Devanagari script integration for "शक्ति सभा"</li>
+                        <li><strong>Variants:</strong> Full logo, icon-only, horizontal, vertical, monochrome</li>
+                        <li><strong>File Formats:</strong> SVG, PNG (transparent), PDF, AI source files</li>
+                        <li><strong>Usage Guidelines:</strong> Minimum clear space, do's & don'ts, color codes (HEX, RGB, CMYK)</li>
+                    </ul>
+                </div>
+                <div class="req-card p-5 rounded-xl bg-white">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">📦 Deliverables</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li>Logo design (3 initial concepts, 2 revision rounds)</li>
+                        <li>Brand guidelines document (PDF, 10-15 pages)</li>
+                        <li>Social media profile kit (profile pic, cover images)</li>
+                        <li>Favicon and app icon (multiple sizes)</li>
+                        <li>Letterhead, envelope, and visiting card templates</li>
+                    </ul>
+                    <div class="mt-3 bg-amber-50 border border-amber-200 p-3 rounded-lg text-xs text-amber-800">
+                        ⚠️ <strong>Note:</strong> Final logo files must be approved by SMT POOJA DAVE JI before website development begins.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 3. BANNERS ==================== -->
+        <section id="banners" class="mb-12 page-break">
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">3. Banners & Visual Assets</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">🖼️ Homepage Banners</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li><strong>Hero Banner:</strong> Fullscreen video (autoplay muted, loop) with overlay text — "12 Years of Shakti · Union of Peace & Revolution"</li>
+                        <li><strong>Pillar Banners:</strong> Three distinct visual banners for Mardini, Shakti Bhava, Shakti Varta</li>
+                        <li><strong>Impact Banner:</strong> Live counters (12 Years, 400+ Schools, Villages reached)</li>
+                        <li><strong>CTA Banners:</strong> Donate Now, Join Volunteer, Book a Camp</li>
+                    </ul>
+                </div>
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">📐 Technical Specifications</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li><strong>Desktop:</strong> 1920×1080px, 2560×1440px (retina)</li>
+                        <li><strong>Mobile:</strong> 1080×1920px (vertical), 1200×628px (social)</li>
+                        <li><strong>Formats:</strong> WebP (optimized), JPEG fallback, MP4 for video</li>
+                        <li><strong>Max Size:</strong> 200KB per image, 5MB per video (compressed)</li>
+                        <li><strong>Accessibility:</strong> Alt text for all banners, contrast ratio ≥ 4.5:1</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-4 bg-gray-100 p-4 rounded-lg text-sm text-gray-700">
+                💡 <strong>Dynamic Banners:</strong> Admin dashboard must allow uploading/replacing banners without code changes. All banners to be responsive and lazy-loaded.
+            </div>
+        </section>
+
+        <!-- ==================== 4. PROFILE ==================== -->
+        <section id="profile" class="mb-12">
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">4. Profile — One Platform Content</h2>
+            <div class="req-card p-5 rounded-xl mb-4">
+                <h3 class="font-bold text-lg text-gray-800 mb-3">👤 Unified Profile System</h3>
+                <p class="text-sm text-gray-700 mb-3">A single, centralized profile module that serves as the content backbone across all sections — founder, team, volunteers, and partners.</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <h4 class="font-semibold text-gray-800 text-sm mb-1">Founder Profile</h4>
+                        <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                            <li>High-resolution photo & bio</li>
+                            <li>Message from founder (video + text)</li>
+                            <li>12-year journey timeline</li>
+                            <li>Achievements & recognition</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-800 text-sm mb-1">Team & Volunteer Profiles</h4>
+                        <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                            <li>Role-based access (admin, editor, volunteer)</li>
+                            <li>Public directory (opt-in)</li>
+                            <li>Contribution history & badges</li>
+                            <li>Social media links</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-blue-50 p-3 rounded-lg text-sm text-blue-800">
+                🔗 <strong>One Platform Content:</strong> Profile data is reusable across website, events, courses, and blog — ensuring consistency and reducing duplicate data entry.
+            </div>
+        </section>
+
+        <!-- ==================== 5. UI/UX ==================== -->
+        <section id="uiux" class="mb-12 page-break">
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">5. UI/UX — Animations, Hover Effects & Design System</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">✨ Animation Requirements</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li><strong>Scroll-triggered:</strong> Fade-in, slide-up, parallax on section entry</li>
+                        <li><strong>Micro-interactions:</strong> Button ripple, icon pulse, counter animation</li>
+                        <li><strong>Page transitions:</strong> Smooth fade between routes (Next.js)</li>
+                        <li><strong>Video banners:</strong> Autoplay with subtle Ken Burns effect</li>
+                        <li><strong>Loading states:</strong> Skeleton screens for galleries, blogs, courses</li>
+                    </ul>
+                </div>
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">🖱️ Hover Effects & Interactions</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li><strong>Cards:</strong> Lift (translateY -4px) + shadow deepen</li>
+                        <li><strong>Buttons:</strong> Color shift + slight scale (1.02)</li>
+                        <li><strong>Navigation:</strong> Underline slide-in, dropdown fade</li>
+                        <li><strong>Images:</strong> Zoom-in (scale 1.05) with overlay text reveal</li>
+                        <li><strong>Links:</strong> Color change + arrow slide</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-4 req-card p-5 rounded-xl">
+                <h3 class="font-bold text-lg text-gray-800 mb-3">🎯 Design System Tokens</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+                    <div class="bg-red-50 p-3 rounded-lg text-center"><span class="font-bold text-red-800">Primary</span><br>#D9381E</div>
+                    <div class="bg-emerald-50 p-3 rounded-lg text-center"><span class="font-bold text-emerald-800">Secondary</span><br>#3D5A45</div>
+                    <div class="bg-amber-50 p-3 rounded-lg text-center"><span class="font-bold text-amber-800">Accent</span><br>#C9A96E</div>
+                    <div class="bg-gray-100 p-3 rounded-lg text-center"><span class="font-bold text-gray-800">Neutral</span><br>#1E293B</div>
+                </div>
+                <p class="text-xs text-gray-500 mt-3">Typography: Inter (Latin) + Noto Sans Devanagari (Hindi). Spacing scale: 4px base unit. Border radius: 8px / 16px / 24px.</p>
+            </div>
+        </section>
+
+        <!-- ==================== 6. SOCIAL WORK ==================== -->
+        <section id="socialwork" class="mb-12">
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">6. Social Work Module</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">🌍 On-Ground Impact</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li><strong>12-Year Archive:</strong> Village workshops, school programs, self-defense camps</li>
+                        <li><strong>Interactive Map:</strong> Geographic reach with filter by State/Year/School type</li>
+                        <li><strong>Media Vault:</strong> Filterable photos & videos (Lathi-Koushal, sword fighting, tactical self-defense)</li>
+                        <li><strong>Impact Metrics:</strong> 400+ schools, villages reached, lives impacted</li>
+                        <li><strong>Field Reports:</strong> Downloadable PDF summaries per camp</li>
+                    </ul>
+                </div>
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">📊 Data & Reporting</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li>Admin dashboard to add/edit social work entries</li>
+                        <li>Automated impact counter updates</li>
+                        <li>Export reports (CSV/PDF) for CSR & donors</li>
+                        <li>Geo-tagging for workshop locations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 7. CASE STUDY BLOG ==================== -->
+        <section id="casestudy" class="mb-12 page-break">
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">7. Case Study Blog</h2>
+            <div class="req-card p-5 rounded-xl mb-4">
+                <h3 class="font-bold text-lg text-gray-800 mb-3">📝 Anonymized, Taboo-Breaking, Powerful</h3>
+                <p class="text-sm text-gray-700 mb-3">A secure, anonymized blog platform for sharing real case studies — counseling human trafficking survivors, PTSD, depression, puberty challenges — without compromising identities.</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <h4 class="font-semibold text-gray-800 text-sm mb-1">Content Features</h4>
+                        <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                            <li>Rich text editor (headings, quotes, embeds)</li>
+                            <li>Category & tag filtering</li>
+                            <li>Reading time estimate</li>
+                            <li>Related case studies</li>
+                            <li>Comments (moderated, anonymous option)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-800 text-sm mb-1">Security & Privacy</h4>
+                        <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                            <li>Zero-Knowledge Database Encryption</li>
+                            <li>AES-256-GCM column-level encryption</li>
+                            <li>Admin cannot map data to real individuals</li>
+                            <li>Consent-based publishing workflow</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-red-50 border border-red-200 p-3 rounded-lg text-sm text-red-800">
+                ⚠️ <strong>Critical:</strong> All case studies must be anonymized. No real names, locations, or identifiable details. Legal review required before publishing.
+            </div>
+        </section>
+
+        <!-- ==================== 8. EVENTS ==================== -->
+        <section id="events" class="mb-12">
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">8. Events Management</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">📅 Live Event Calendar</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li>Real-time synchronized calendar (online webinars + offline seminars)</li>
+                        <li>Upcoming Events ticker on homepage</li>
+                        <li>Slot booking with instant payment</li>
+                        <li>Event details: date, time, venue, speakers, agenda</li>
+                        <li>Registration confirmation via email/SMS</li>
+                    </ul>
+                </div>
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">🎟️ Booking & Management</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li>Admin panel to create/edit events</li>
+                        <li>Capacity limits & waitlist</li>
+                        <li>QR code check-in for offline events</li>
+                        <li>Post-event feedback collection</li>
+                        <li>Recording upload for paid events</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 9. HALF / HELP ==================== -->
+        <section id="halfhelp" class="mb-12 page-break">
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">9. Half / Help — Agency, NGO, Student Work</h2>
+            <div class="req-card p-5 rounded-xl mb-4">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-bold">WORDING PENDING CONFIRMATION</span>
+                </div>
+                <h3 class="font-bold text-lg text-gray-800 mb-3">🤝 Collaborative Ecosystem</h3>
+                <p class="text-sm text-gray-700 mb-3">A dedicated module to connect agencies, NGOs, and students for collaborative social work, internships, and project-based learning.</p>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-800 text-sm mb-2">🏢 For Agencies</h4>
+                        <ul class="list-disc pl-4 text-xs text-gray-600 space-y-1">
+                            <li>Post CSR projects</li>
+                            <li>Sponsor camps</li>
+                            <li>Employee volunteering</li>
+                            <li>Impact reports</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-800 text-sm mb-2">🌱 For NGOs</h4>
+                        <ul class="list-disc pl-4 text-xs text-gray-600 space-y-1">
+                            <li>Partner listings</li>
+                            <li>Resource sharing</li>
+                            <li>Joint events</li>
+                            <li>Grant collaboration</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-800 text-sm mb-2">🎓 For Students</h4>
+                        <ul class="list-disc pl-4 text-xs text-gray-600 space-y-1">
+                            <li>Internships</li>
+                            <li>Volunteer credits</li>
+                            <li>Project submissions</li>
+                            <li>Mentorship</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-4 bg-amber-50 border border-amber-200 p-3 rounded-lg text-xs text-amber-800">
+                    📝 <strong>Confirmation Needed:</strong> The term "Half / Help" is a placeholder. Please confirm final wording — e.g., "Sahyog" (Collaboration), "Sangathan" (Organization), or "Sahbhagita" (Participation).
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 10. COURSES ==================== -->
+        <section id="courses" class="mb-12">
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">10. Courses & Learning Management System (LMS)</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">🎓 Course Features</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li><strong>Paid Courses:</strong> Character Building, Vedic Parenting, Self-Defense, Leadership</li>
+                        <li><strong>DRM Protected Streaming:</strong> AWS CloudFront signed URLs — prevents download/recording</li>
+                        <li><strong>Progress Tracking:</strong> Module completion, quizzes, certificates</li>
+                        <li><strong>Video Player:</strong> Custom controls, speed adjustment, notes</li>
+                        <li><strong>Mobile Learning:</strong> Responsive player, offline download (app)</li>
+                    </ul>
+                </div>
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">🛒 E-Commerce Store</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li>Books, T-shirts, value-earning products</li>
+                        <li>Clean checkout flow (Razorpay + Stripe)</li>
+                        <li>UPI, Credit Card, International Payments</li>
+                        <li>Order tracking & invoice generation</li>
+                        <li>Inventory management (admin)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-4 bg-green-50 p-3 rounded-lg text-sm text-green-800">
+                ✅ <strong>LMS + Store included</strong> in the platform architecture. DRM encryption via AWS CloudFront signed URLs.
+            </div>
+        </section>
+
+        <!-- ==================== 11. RESEARCH PAPERS ==================== -->
+        <section id="research" class="mb-12 page-break">
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">11. Research Papers & Thought-Lab</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">📚 Thought-Lab (The Think-Tank)</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li>Fact-based White Papers debunking toxic Western feminism</li>
+                        <li>"The Legal Collage" — analysis of systemic/legal loopholes</li>
+                        <li>Verified historical archives of Indian women warriors and scientists</li>
+                        <li>Academic Citation Tool (BibTeX, APA, MLA export)</li>
+                        <li>Advanced text search indexing</li>
+                    </ul>
+                </div>
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">🔐 Secure PDF Repository</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li>Downloadable white papers (PDF, encrypted)</li>
+                        <li>Access control (public, member-only, paid)</li>
+                        <li>DOI generation for citations</li>
+                        <li>Version history & peer review status</li>
+                        <li>Plagiarism check integration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 12. PAYMENT GATEWAY ==================== -->
+        <section id="payment" class="mb-12">
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">12. Payment Gateway & Monetization</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">💳 Payment Integration</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li><strong>Razorpay:</strong> UPI, Cards, Net Banking, Wallets (India)</li>
+                        <li><strong>Stripe:</strong> International Cards, Apple Pay, Google Pay</li>
+                        <li><strong>Recurring Donations:</strong> Monthly/yearly subscription</li>
+                        <li><strong>Auto Receipts:</strong> 80G tax-exempt receipts via email</li>
+                        <li><strong>Multi-Currency:</strong> INR, USD, EUR, GBP</li>
+                    </ul>
+                </div>
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">💰 Revenue Systems</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li><strong>LMS & Store:</strong> Course fees, merchandise, books</li>
+                        <li><strong>Camp Bookings:</strong> 3-Day, 5-Day, 7-Day camps for schools/corporates</li>
+                        <li><strong>Event Registrations:</strong> Paid webinars & seminars</li>
+                        <li><strong>Crowdfunding:</strong> Sponsor a Village Camp (CSR + individual)</li>
+                        <li><strong>Transparent Tracking:</strong> Real-time fund allocation dashboard</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-4 bank-details p-4 rounded-xl">
+                <h3 class="font-bold text-md text-green-800 mb-2">🏦 Bank Details for Payments (as per proposal)</h3>
+                <table class="w-full text-sm">
+                    <tr class="border-b border-green-100"><td class="py-1.5 font-semibold w-44">Account Holder</td><td>: Om Uikey (Co-Founder)</td></tr>
+                    <tr class="border-b border-green-100"><td class="py-1.5 font-semibold">Bank</td><td>: India Post Payment Bank</td></tr>
+                    <tr class="border-b border-green-100"><td class="py-1.5 font-semibold">Account Number</td><td>: <span class="font-mono font-bold">027510018499</span></td></tr>
+                    <tr><td class="py-1.5 font-semibold">IFSC Code</td><td>: <span class="font-mono font-bold">IPOS0000001</span></td></tr>
+                </table>
+                <p class="text-xs text-gray-600 mt-2">🔐 UTR mandatory — send to info.growhaz.@gmail.com after each payment.</p>
+            </div>
+        </section>
+
+        <!-- ==================== 13. SECURITY ==================== -->
+        <section id="security" class="mb-12 page-break">
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">13. Security & Anonymity Engineering</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">🔒 Data Protection</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li><strong>AES-256-GCM:</strong> Column-level encryption for sensitive data</li>
+                        <li><strong>Zero-Knowledge Database:</strong> Even admins cannot map data to individuals</li>
+                        <li><strong>GDPR & IT Act Compliance:</strong> Data localization, consent tracking</li>
+                        <li><strong>Regular Audits:</strong> Quarterly security assessments</li>
+                        <li><strong>Incident Response:</strong> 24-hour breach notification protocol</li>
+                    </ul>
+                </div>
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">🛡️ Platform Security</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li>HTTPS/TLS 1.3 encryption in transit</li>
+                        <li>DDoS protection (AWS Shield)</li>
+                        <li>WAF (Web Application Firewall)</li>
+                        <li>Rate limiting & bot protection</li>
+                        <li>Two-factor authentication for admin</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 14. TECH STACK ==================== -->
+        <section id="techstack" class="mb-12">
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">14. Technology Stack & Architecture</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">⚙️ Core Technologies</h3>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <span class="badge-tech">Next.js</span>
+                        <span class="badge-tech">React</span>
+                        <span class="badge-tech">TypeScript</span>
+                        <span class="badge-tech">Tailwind CSS</span>
+                        <span class="badge-tech">AWS (EC2, S3, CloudFront, RDS)</span>
+                        <span class="badge-tech">PostgreSQL</span>
+                        <span class="badge-tech">Redis</span>
+                        <span class="badge-tech">Razorpay</span>
+                        <span class="badge-tech">Stripe</span>
+                        <span class="badge-tech">Docker</span>
+                        <span class="badge-tech">Nginx</span>
+                    </div>
+                </div>
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">🏗️ Architecture Highlights</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li>Modular, microservices-ready architecture</li>
+                        <li>CDN for static assets & video streaming</li>
+                        <li>Serverless functions for payments & notifications</li>
+                        <li>Multi-language (i18n) routing (Hindi/English)</li>
+                        <li>SEO optimized (SSR, meta tags, sitemap)</li>
+                        <li>PWA support for mobile app-like experience</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 15. TIMELINE ==================== -->
+        <section id="timeline" class="mb-12 page-break">
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">15. Delivery Timeline & Milestones</h2>
+            <div class="bg-green-50 p-5 rounded-xl border border-green-200">
+                <div class="flex items-center gap-3 flex-wrap mb-4">
+                    <span class="bg-green-700 text-white px-3 py-1 rounded-full text-sm font-bold">⚡ Commitment</span>
+                    <span class="font-semibold text-gray-800">Complete platform delivered within <span class="text-2xl font-black text-green-800">20 days</span> from advance payment confirmation.</span>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-2">📅 Milestones:</p>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li><strong>Day 1-5:</strong> Logo, brand identity, design system, homepage UI</li>
+                            <li><strong>Day 6-10:</strong> Social work, case study blog, events, profile modules</li>
+                            <li><strong>Day 11-15:</strong> Courses/LMS, research papers, payment gateway integration</li>
+                            <li><strong>Day 16-18:</strong> Half/Help module, security hardening, bilingual setup</li>
+                            <li><strong>Day 19-20:</strong> Final client review, deployment, handover & training</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-2">✅ Post-Delivery:</p>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li>1 Year Basic Support included</li>
+                            <li>Admin dashboard training (2 sessions)</li>
+                            <li>Documentation & video tutorials</li>
+                            <li>Website maintenance: ₹12,000/year (optional)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 16. APPENDIX ==================== -->
+        <section id="appendix" class="mb-8">
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">16. Appendix & Terms</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">📋 Open Questions for Client</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li>Bilingual (Hindi + English) or English only?</li>
+                        <li>Preferred payment gateway: Razorpay, Stripe, or both?</li>
+                        <li>Is the 12-year media archive structured or needs ingestion plan?</li>
+                        <li>Final wording for "Half / Help" module?</li>
+                        <li>Domain name & hosting preference?</li>
+                    </ul>
+                </div>
+                <div class="req-card p-5 rounded-xl">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">📌 Terms & Conditions</h3>
+                    <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                        <li>Payment: 30% advance, 30% halfway, 40% on completion</li>
+                        <li>Domain, hosting, and SSL not included in development cost</li>
+                        <li>Content (text, images, videos) to be provided by client</li>
+                        <li>2 revision rounds included per module</li>
+                        <li>Source code ownership transfers on final payment</li>
+                        <li>Confidentiality: Both parties agree to NDA terms</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-6 bg-gray-100 p-5 rounded-xl text-center">
+                <p class="text-sm text-gray-600">Prepared by <strong>Growhaz Technology Team</strong> · Raj Parmar (Founder) & Om Uikey (Co-Founder)</p>
+                <p class="text-xs text-gray-500 mt-1">For SMT POOJA DAVE JI · Prayas Samaj Sevi Sanstha Indore · 8 June 2026</p>
+                <p class="text-xs text-gray-400 mt-2">SRS v1.0 · Confidential · Page 1 of 1</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="no-print text-center text-xs text-gray-400 mt-6 mb-4">
+        Shakti Sabha SRS · Union of Peace and Revolution · 12 Years of Impact
+    </div>
+
+</body>
+</html>
