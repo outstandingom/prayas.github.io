@@ -16,6 +16,16 @@
         .badge-tech { background: #1e293b; color: #e2e8f0; font-size: 0.7rem; padding: 2px 10px; border-radius: 9999px; display: inline-block; }
         .core-highlight { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border: 2px solid #d97706; }
         .aaryaveera-glow { box-shadow: 0 0 25px rgba(217, 119, 6, 0.35); }
+        /* Footnote & citation styles */
+        .footnote-ref { font-size: 0.7rem; vertical-align: super; color: #b91c1c; cursor: pointer; font-weight: 600; }
+        .footnote-ref:hover { text-decoration: underline; }
+        .footnote-tooltip { position: relative; display: inline-block; border-bottom: 1px dotted #b91c1c; cursor: help; }
+        .footnote-tooltip .tooltip-text { visibility: hidden; width: 300px; background-color: #1e293b; color: #fff; text-align: left; border-radius: 6px; padding: 10px; position: absolute; z-index: 1; bottom: 125%; left: 50%; margin-left: -150px; opacity: 0; transition: opacity 0.2s; font-size: 0.75rem; line-height: 1.4; box-shadow: 0 4px 12px rgba(0,0,0,0.25); }
+        .footnote-tooltip:hover .tooltip-text { visibility: visible; opacity: 1; }
+        .citation-block { background: #f1f5f9; border-left: 4px solid #0f172a; padding: 12px 16px; border-radius: 0 8px 8px 0; font-family: 'Courier New', monospace; font-size: 0.8rem; word-break: break-word; }
+        .history-girls-section { background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fbcfe8 100%); border: 2px solid #db2777; border-radius: 1.5rem; padding: 1.5rem; position: relative; overflow: hidden; }
+        .history-girls-section::before { content: "⚡"; position: absolute; top: -10px; right: -10px; font-size: 8rem; opacity: 0.08; transform: rotate(15deg); }
+        .history-girls-section::after { content: "🌺"; position: absolute; bottom: -20px; left: -20px; font-size: 7rem; opacity: 0.08; transform: rotate(-10deg); }
         @media print {
             body { background: white; font-size: 10.5pt; }
             .no-print { display: none !important; }
@@ -24,6 +34,7 @@
             .page-break { page-break-after: always; }
             .req-card { break-inside: avoid; }
             .core-highlight { break-inside: avoid; }
+            .footnote-tooltip .tooltip-text { display: none; }
         }
     </style>
 </head>
@@ -34,7 +45,7 @@
         <button onclick="window.print()" class="bg-red-800 hover:bg-red-900 text-white px-6 py-2 rounded-lg text-sm font-semibold shadow-md transition flex items-center gap-2">
             📄 Save as PDF / Print SRS
         </button>
-        <div class="text-sm text-gray-500 bg-white px-4 py-1.5 rounded-full shadow-sm border">SRS v1.1 · Project Shakti Sabha</div>
+        <div class="text-sm text-gray-500 bg-white px-4 py-1.5 rounded-full shadow-sm border">SRS v1.2 · Project Shakti Sabha</div>
     </div>
 
     <!-- Main Document Container -->
@@ -43,7 +54,7 @@
         <!-- ==================== COVER PAGE ==================== -->
         <header class="text-center mb-12 border-b-2 border-red-800 pb-8">
             <div class="flex justify-between items-start flex-wrap gap-3 mb-6 text-sm text-gray-500">
-                <div>📋 SRS ID: SS-SRS-2026-v1.1</div>
+                <div>📋 SRS ID: SS-SRS-2026-v1.2</div>
                 <div>📅 8 June 2026</div>
                 <div>🔒 Confidential</div>
             </div>
@@ -84,14 +95,15 @@
                 <a href="#socialwork" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">7. Social Work Module</a>
                 <a href="#casestudy" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">8. Case Study Blog</a>
                 <a href="#events" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">9. Events Management</a>
-                <a href="#halfhelp" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">10. Half / Help — Agency, NGO, Student Work</a>
+                <a href="#sahyog" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">10. Sahyog — Collaboration Ecosystem</a>
                 <a href="#courses" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">11. Courses & LMS</a>
-                <a href="#research" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">12. Research Papers & Thought-Lab</a>
+                <a href="#research" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">12. Research Papers & Thought-Lab (with Citations)</a>
                 <a href="#payment" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">13. Payment Gateway & Monetization</a>
                 <a href="#security" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">14. Security & Anonymity Engineering</a>
                 <a href="#techstack" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">15. Technology Stack & Architecture</a>
                 <a href="#timeline" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">16. Delivery Timeline & Milestones</a>
-                <a href="#appendix" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">17. Appendix & Terms</a>
+                <a href="#history-girls" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">17. History & Today's Success Girls (Visual Section)</a>
+                <a href="#appendix" class="text-gray-700 hover:text-red-700 py-1 border-b border-gray-100">18. Appendix & Terms</a>
             </div>
         </section>
 
@@ -109,6 +121,7 @@
                     <li>Integrated monetization: LMS, e-commerce, camp bookings, donations, events</li>
                     <li>Zero-knowledge encryption for sensitive counseling and case study data</li>
                     <li>Global talent & volunteer onboarding pipeline</li>
+                    <li><strong>No international donation collection</strong> — FCRA compliance strictly enforced</li>
                 </ul>
 
                 <h3 class="text-lg font-semibold text-gray-800 mt-4 mb-2">1.3 Core Pillars</h3>
@@ -207,7 +220,6 @@
                         <li>Brand guidelines document (PDF, 10-15 pages)</li>
                         <li>Social media profile kit (profile pic, cover images)</li>
                         <li>Favicon and app icon (multiple sizes)</li>
-                        
                     </ul>
                 </div>
             </div>
@@ -397,15 +409,15 @@
             </div>
         </section>
 
-        <!-- ==================== 10. HALF / HELP ==================== -->
-        <section id="halfhelp" class="mb-12 page-break">
-            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">10 Agency, NGO, Student Work</h2>
+        <!-- ==================== 10. SAHYOG (renamed from Half/Help) ==================== -->
+        <section id="sahyog" class="mb-12 page-break">
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">10. Sahyog — Collaboration Ecosystem</h2>
             <div class="req-card p-5 rounded-xl mb-4">
                 <div class="flex items-center gap-3 mb-3">
-                    <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-bold">WORDING PENDING CONFIRMATION</span>
+                    <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold">CONFIRMED WORDING</span>
                 </div>
                 <h3 class="font-bold text-lg text-gray-800 mb-3">🤝 Collaborative Ecosystem</h3>
-                <p class="text-sm text-gray-700 mb-3">A dedicated module to connect agencies, NGOs, and students for collaborative social work, internships, and project-based learning.</p>
+                <p class="text-sm text-gray-700 mb-3">A dedicated module to connect agencies, NGOs, and students for collaborative social work, internships, and project-based learning. <strong>Sahyog</strong> (Collaboration) replaces the earlier placeholder "Half / Help".</p>
                 <div class="grid md:grid-cols-3 gap-4">
                     <div class="bg-gray-50 p-4 rounded-lg">
                         <h4 class="font-semibold text-gray-800 text-sm mb-2">🏢 For Agencies</h4>
@@ -435,8 +447,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="mt-4 bg-amber-50 border border-amber-200 p-3 rounded-lg text-xs text-amber-800">
-                    📝 <strong>Confirmation Needed:</strong> The term "Half / Help" is a placeholder. Please confirm final wording — e.g., "Sahyog" (Collaboration), "Sangathan" (Organization), or "Sahbhagita" (Participation).
+                <div class="mt-4 bg-emerald-50 border border-emerald-200 p-3 rounded-lg text-xs text-emerald-800">
+                    ✅ <strong>Confirmed:</strong> The module is now officially named "Sahyog — Collaboration Ecosystem".
                 </div>
             </div>
         </section>
@@ -462,18 +474,18 @@
                         <li>Books, T-shirts, value-earning products</li>
                         <li>Aaryaveera merchandise line</li>
                         <li>Clean checkout flow (Razorpay + Stripe)</li>
-                        <li>UPI, Credit Card, International Payments</li>
+                        <li>UPI, Credit Card, <strong>Domestic payments only</strong> (no international donations)</li>
                         <li>Order tracking & invoice generation</li>
                         <li>Inventory management (admin)</li>
                     </ul>
                 </div>
             </div>
             <div class="mt-4 bg-green-50 p-3 rounded-lg text-sm text-green-800">
-                ✅ <strong>LMS + Store included</strong> in the platform architecture. DRM encryption via AWS CloudFront signed URLs.
+                ✅ <strong>LMS + Store included</strong> in the platform architecture. DRM encryption via AWS CloudFront signed URLs. <strong>Note:</strong> International payment collection is disabled for donations; only domestic transactions allowed.
             </div>
         </section>
 
-        <!-- ==================== 12. RESEARCH PAPERS ==================== -->
+        <!-- ==================== 12. RESEARCH PAPERS (with footnotes & citation tool) ==================== -->
         <section id="research" class="mb-12 page-break">
             <h2 class="text-2xl font-bold text-red-800 section-title mb-4">12. Research Papers & Thought-Lab</h2>
             <div class="grid md:grid-cols-2 gap-6">
@@ -483,7 +495,8 @@
                         <li>Fact-based White Papers debunking toxic Western feminism</li>
                         <li>"The Legal Collage" — analysis of systemic/legal loopholes</li>
                         <li>Verified historical archives of Indian women warriors and scientists</li>
-                        <li>Academic Citation Tool (BibTeX, APA, MLA export)</li>
+                        <li><strong>Interactive footnotes & endnotes</strong> — clickable references for historical records and legal sections <span class="footnote-ref" title="Feature added as per requirement #4">[1]</span></li>
+                        <li><strong>Advanced citation tool</strong> — copy article in APA, MLA, or Chicago format <span class="footnote-ref" title="Feature added as per requirement #5">[2]</span></li>
                         <li>Advanced text search indexing</li>
                     </ul>
                 </div>
@@ -498,9 +511,34 @@
                     </ul>
                 </div>
             </div>
+
+            <!-- Expanded details for footnotes and citation tool -->
+            <div class="mt-6 grid md:grid-cols-2 gap-6">
+                <div class="req-card p-5 rounded-xl bg-white">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">🔗 Interactive Footnotes & Endnotes</h3>
+                    <p class="text-sm text-gray-700 mb-2">All articles and research papers will feature:</p>
+                    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                        <li>Clickable superscript numbers that open a tooltip or modal with the reference details.</li>
+                        <li>Hover-over previews for quick reference without leaving the page.</li>
+                        <li>Endnote section at the bottom of each article for full citations.</li>
+                        <li>Support for legal section links (e.g., IPC, CrPC) with official sources.</li>
+                    </ul>
+                    <p class="text-xs text-gray-500 mt-2">Example: <span class="footnote-tooltip">IPC Section 375<span class="tooltip-text">Indian Penal Code, Section 375 — Definition of Rape (now replaced by BNS). Click for official gazette.</span></span></p>
+                </div>
+                <div class="req-card p-5 rounded-xl bg-white">
+                    <h3 class="font-bold text-lg text-gray-800 mb-3">📋 Citation Tool — Copy in APA, MLA, Chicago</h3>
+                    <p class="text-sm text-gray-700 mb-2">Users can generate formatted citations for any article or research paper:</p>
+                    <div class="space-y-3 mt-2">
+                        <div class="citation-block"><strong>APA 7th:</strong> Shakti Sabha. (2026). Title of Article. <em>Shakti Varta Journal</em>, 12(3), 45-67. https://shaktisabha.org/research/...</div>
+                        <div class="citation-block"><strong>MLA 9th:</strong> "Title of Article." <em>Shakti Varta Journal</em>, vol. 12, no. 3, 2026, pp. 45-67. Shaktisabha.org.</div>
+                        <div class="citation-block"><strong>Chicago 17th:</strong> Shakti Sabha. "Title of Article." <em>Shakti Varta Journal</em> 12, no. 3 (2026): 45-67. https://shaktisabha.org/research/...</div>
+                    </div>
+                    <button class="mt-3 bg-red-800 hover:bg-red-900 text-white px-4 py-1.5 rounded-lg text-sm font-semibold transition no-print" onclick="alert('Citation copied to clipboard! (Demo)')">📋 Copy Citation</button>
+                </div>
+            </div>
         </section>
 
-        <!-- ==================== 13. PAYMENT GATEWAY ==================== -->
+        <!-- ==================== 13. PAYMENT GATEWAY (updated: no international donations) ==================== -->
         <section id="payment" class="mb-12">
             <h2 class="text-2xl font-bold text-red-800 section-title mb-4">13. Payment Gateway & Monetization</h2>
             <div class="grid md:grid-cols-2 gap-6">
@@ -508,10 +546,10 @@
                     <h3 class="font-bold text-lg text-gray-800 mb-3">💳 Payment Integration</h3>
                     <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
                         <li><strong>Razorpay:</strong> UPI, Cards, Net Banking, Wallets (India)</li>
-                        <li><strong>Stripe:</strong> International Cards, Apple Pay, Google Pay</li>
-                        <li><strong>Recurring Donations:</strong> Monthly/yearly subscription</li>
-                        <li><strong>Auto Receipts:</strong> 80G tax-exempt receipts via email</li>
-                        <li><strong>Multi-Currency:</strong> INR, USD, EUR, GBP</li>
+                        <li><strong>Stripe:</strong> Domestic cards only (no international donations)</li>
+                        <li><strong>Recurring Donations:</strong> Monthly/yearly subscription (domestic only)</li>
+                        <li><strong>Auto Receipts:</strong> 80G tax-exempt receipts only after 12A/80G certification is obtained <span class="footnote-ref" title="Requirement #2: Highlight only after 12A/80G received">[3]</span></li>
+                        <li><strong>Multi-Currency:</strong> INR only for donations (FCRA compliance)</li>
                     </ul>
                 </div>
                 <div class="req-card p-5 rounded-xl">
@@ -522,8 +560,12 @@
                         <li><strong>Event Registrations:</strong> Paid webinars & seminars</li>
                         <li><strong>Crowdfunding:</strong> Sponsor a Village Camp (CSR + individual)</li>
                         <li><strong>Transparent Tracking:</strong> Real-time fund allocation dashboard</li>
+                        <li><strong>No international donations accepted</strong> — strict FCRA compliance</li>
                     </ul>
                 </div>
+            </div>
+            <div class="mt-4 bg-amber-50 border border-amber-200 p-3 rounded-lg text-sm text-amber-800">
+                ⚠️ <strong>FCRA Note:</strong> International donation collection is completely removed from all payment flows. 80G receipts will only be displayed after the organization receives 12A/80G certification. Until then, donations are acknowledged without tax exemption claims.
             </div>
         </section>
 
@@ -607,7 +649,7 @@
                             <li><strong>Day 1-5:</strong> Logo, Aaryaveera emblem, brand identity, design system, homepage UI</li>
                             <li><strong>Day 6-10:</strong> Social work, case study blog, events, profile modules</li>
                             <li><strong>Day 11-15:</strong> Courses/LMS, research papers, payment gateway integration</li>
-                            <li><strong>Day 16-18:</strong> Half/Help module, security hardening, bilingual setup</li>
+                            <li><strong>Day 16-18:</strong> Sahyog module, security hardening, bilingual setup</li>
                             <li><strong>Day 19-20:</strong> Final client review, deployment, handover & training</li>
                         </ul>
                     </div>
@@ -624,19 +666,85 @@
             </div>
         </section>
 
-        <!-- ==================== 17. APPENDIX ==================== -->
+        <!-- ==================== 17. HISTORY & TODAY'S SUCCESS GIRLS (new visual section) ==================== -->
+        <section id="history-girls" class="mb-12 page-break">
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">17. History & Today's Success Girls — Visual Section</h2>
+            <div class="history-girls-section">
+                <div class="relative z-10">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-pink-200 text-pink-900 px-4 py-1.5 rounded-full text-sm font-bold tracking-wide">NEW VISUAL DESIGN</span>
+                        <span class="text-pink-700 text-sm">Different from other sections — vibrant, story-driven</span>
+                    </div>
+                    <p class="text-sm text-gray-800 mb-4 max-w-3xl">This section is designed as a visual storytelling experience. It highlights historical women warriors, scientists, and leaders alongside today's success stories of young girls who have overcome challenges. The layout uses bold colors, large imagery, and interactive elements to create a distinct feel.</p>
+                    <div class="grid md:grid-cols-2 gap-6 mt-4">
+                        <!-- Historical column -->
+                        <div class="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-pink-200 shadow-sm">
+                            <h3 class="text-xl font-bold text-pink-800 flex items-center gap-2 mb-3"><span class="text-2xl">🏛️</span> Historical Women</h3>
+                            <div class="flex flex-wrap gap-3">
+                                <div class="bg-pink-100 rounded-lg p-2 text-center w-24">
+                                    <div class="text-3xl mb-1">👑</div>
+                                    <div class="text-xs font-bold text-pink-900">Rani Lakshmibai</div>
+                                </div>
+                                <div class="bg-pink-100 rounded-lg p-2 text-center w-24">
+                                    <div class="text-3xl mb-1">⚔️</div>
+                                    <div class="text-xs font-bold text-pink-900">Kittur Chennamma</div>
+                                </div>
+                                <div class="bg-pink-100 rounded-lg p-2 text-center w-24">
+                                    <div class="text-3xl mb-1">🔬</div>
+                                    <div class="text-xs font-bold text-pink-900">Anandibai Joshi</div>
+                                </div>
+                                <div class="bg-pink-100 rounded-lg p-2 text-center w-24">
+                                    <div class="text-3xl mb-1">📜</div>
+                                    <div class="text-xs font-bold text-pink-900">Vijaya Lakshmi Pandit</div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-pink-700 mt-3">Interactive timeline — click to read full story with footnotes & references.</p>
+                        </div>
+                        <!-- Today's success column -->
+                        <div class="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-pink-200 shadow-sm">
+                            <h3 class="text-xl font-bold text-pink-800 flex items-center gap-2 mb-3"><span class="text-2xl">🌟</span> Today's Success Girls</h3>
+                            <div class="flex flex-wrap gap-3">
+                                <div class="bg-pink-100 rounded-lg p-2 text-center w-24">
+                                    <div class="text-3xl mb-1">🚀</div>
+                                    <div class="text-xs font-bold text-pink-900">Ritu (IAS)</div>
+                                </div>
+                                <div class="bg-pink-100 rounded-lg p-2 text-center w-24">
+                                    <div class="text-3xl mb-1">🏅</div>
+                                    <div class="text-xs font-bold text-pink-900">Meera (Athlete)</div>
+                                </div>
+                                <div class="bg-pink-100 rounded-lg p-2 text-center w-24">
+                                    <div class="text-3xl mb-1">💻</div>
+                                    <div class="text-xs font-bold text-pink-900">Anjali (Techie)</div>
+                                </div>
+                                <div class="bg-pink-100 rounded-lg p-2 text-center w-24">
+                                    <div class="text-3xl mb-1">🎨</div>
+                                    <div class="text-xs font-bold text-pink-900">Kavya (Artist)</div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-pink-700 mt-3">Video testimonials, before-after journeys, and achievement badges.</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-pink-200/60 p-3 rounded-lg text-sm text-pink-900 border border-pink-300">
+                        <strong>Design note:</strong> This section uses a distinct pink-magenta gradient, floating icons, and an interactive card layout — visually different from the rest of the site. Hover effects include glow and pop-up biographies. Historical references are footnoted for easy verification.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 18. APPENDIX ==================== -->
         <section id="appendix" class="mb-8">
-            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">17. Appendix & Terms</h2>
+            <h2 class="text-2xl font-bold text-red-800 section-title mb-4">18. Appendix & Terms</h2>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="req-card p-5 rounded-xl">
                     <h3 class="font-bold text-lg text-gray-800 mb-3">📋 Open Questions for Client</h3>
                     <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
                         <li>Bilingual (Hindi + English) or English only?</li>
-                        <li>Preferred payment gateway: Razorpay, Stripe, or both?</li>
+                        <li>Preferred payment gateway: Razorpay, Stripe, or both? (Domestic only)</li>
                         <li>Is the 12-year media archive structured or needs ingestion plan?</li>
-                        <li>Final wording for "Half / Help" module?</li>
+                        <li>Final wording for "Sahyog" module confirmed?</li>
                         <li>Domain name & hosting preference?</li>
                         <li>Aaryaveera brand story & manifesto finalization?</li>
+                        <li>Timeline for obtaining 12A/80G certification?</li>
                     </ul>
                 </div>
                 <div class="req-card p-5 rounded-xl">
@@ -648,6 +756,8 @@
                         <li>2 revision rounds included per module</li>
                         <li>Source code ownership transfers on final payment</li>
                         <li>Confidentiality: Both parties agree to NDA terms</li>
+                        <li><strong>FCRA compliance:</strong> No international donation collection, ever.</li>
+                        <li><strong>12A/80G:</strong> Tax exemption receipts only after certification is received.</li>
                     </ul>
                 </div>
             </div>
@@ -662,7 +772,7 @@
 
             <div class="mt-6 bg-gray-100 p-5 rounded-xl text-center">
                 <p class="text-sm text-gray-600">Document prepared by <strong>PrintingTask</strong> · Digital Solutions Division</p>
-                <p class="text-xs text-gray-500 mt-1">SRS v1.1 · Confidential · Page 1 of 1</p>
+                <p class="text-xs text-gray-500 mt-1">SRS v1.2 · Confidential · Page 1 of 1</p>
             </div>
         </section>
 
